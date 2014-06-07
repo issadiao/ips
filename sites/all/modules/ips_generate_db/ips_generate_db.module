@@ -1,0 +1,250 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: issa.diao
+ * Date: 3/5/2014
+ * Time: 10:08 AM
+ */
+
+function ips_generate_db_menu() {
+
+  $items['admin/grid/generate-table'] = array(
+    'title' => 'Generate Grid',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ips_generate_db_form'),
+    'access arguments' => array('administer blocks'),
+  );
+
+  $items['admin/grid/erase-table/%'] = array(
+    'title' => 'Position',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ips_generate_db_erase_grid_form',3),
+    'access arguments' => array('administer blocks'),
+  );
+
+  return $items;
+}
+
+// form to drop grid table from database and recreate
+function ips_generate_db_erase_grid_form($form, &$form_state, $value) {
+
+  $form['location'] = array(
+    '#type' => 'hidden',
+    '#value' => $value,
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Erase Data',
+  );
+
+  return $form;
+
+
+}
+
+function ips_generate_db_erase_grid_form_submit($form, &$form_state) {
+
+  $location = $form_state['values']['location'];
+
+  $node = node_load($location);
+
+  $x = $node->field_location_grid_x['und'][0]['value'];
+  $y = $node->field_location_grid_y['und'][0]['value'];
+
+  $table = ips_generate_db_table_name($location, $x, $y);
+
+  db_query("DROP TABLE $table");
+  ips_generate_db_create_grid($location, $x, $y);
+
+  drupal_set_message("Success! Database table created.");
+  $form_state['redirect'] = "node/" . $location;
+
+}
+
+// form to add survey results to database
+function ips_generate_db_form($form_state) {
+
+  $form['info'] = array(
+    '#markup' => t('This form generates a database table to store location grid coordinates.'),
+  );
+
+  $locations = array();
+  $result = db_query("SELECT title, nid FROM node WHERE type = 'location'");
+  foreach ($result as $record) {
+    $locations[$record->nid] = $record->title;
+  }
+
+  $form['location'] = array(
+    '#type' => 'select',
+    '#options' => $locations,
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',
+  );
+
+  return $form;
+
+}
+
+function ips_generate_db_form_submit($form, &$form_state) {
+
+  $location = $form_state['values']['location'];
+
+  $node = node_load($location);
+
+  $x = $node->field_location_grid_x['und'][0]['value'];
+  $y = $node->field_location_grid_y['und'][0]['value'];
+
+  $table = ips_generate_db_table_name($location, $x, $y);
+
+  // check if table already exists
+  $check = db_query("SHOW TABLES LIKE :db", array(":db" => $table));
+  foreach ($check as $checks) {
+    drupal_set_message("That grid already exists. Do you want to delete it? All values will be lost.");
+    $redirect = "http://ips.farsidedevelopment.com/admin/grid/erase-table/$location";
+    header("Location: $redirect");
+    exit;
+  }
+
+  ips_generate_db_create_grid($location, $x, $y);
+
+  drupal_set_message("Success! Database table created.");
+}
+
+
+// create db table
+function ips_generate_db_create_grid($location, $x, $y) {
+
+  $table = ips_generate_db_table_name($location, $x, $y);
+  $array_x = ips_generate_db_create_x($x);
+  $array_y = ips_generate_db_create_y($y);
+  $columns = ips_generate_db_columns($array_x, $array_y);
+
+  // create table
+  $sql = "CREATE TABLE " . $table . " (device text(40) NULL";
+
+  foreach ($columns as $column) {
+    $sql .= ",$column tinyint unsigned NOT NULL default '0'";
+  }
+
+  $sql .= ", UNIQUE(device(4))) /*!40100 DEFAULT CHARACTER SET utf8 */;";
+
+  db_query($sql);
+
+}
+
+
+// naming convention for grid tables
+function ips_generate_db_table_name($location, $x, $y) {
+
+  $table = "grid_" . $location . "_" . $x . $y;
+  return $table;
+
+}
+
+function ips_generate_db_create_x($x) {
+
+  $array_x = array();
+  $max = ord($x);
+  while ($max > 64) {
+    $array_x[] = chr($max);
+    $max = $max - 1;
+  }
+  $array_x = array_reverse($array_x);
+
+  return $array_x;
+}
+
+function ips_generate_db_create_y($y) {
+
+  $array_y = array();
+  for ($i=1;$i<=$y;$i++) {
+    $array_y[] = $i;
+  }
+
+  return $array_y;
+}
+
+function ips_generate_db_columns($x, $y) {
+
+  $columns = array();
+  foreach ($x as $horizontal) {
+    foreach ($y as $vertical) {
+      $columns[] = $horizontal . $vertical;
+    }
+  }
+
+  return $columns;
+}
+
+/*
+ *
+ * arrange stored values into array
+ *
+ * [1] =>
+ *    [0] A1
+ *    [1] B1
+ *    [2] C1
+ * [2] =>
+ *    [0] A2
+ *    [1] B3
+ *    [2] C4
+ *
+ */
+function ips_generate_db_read_table_values($location) {
+
+  $location = node_load($location);
+  $max_x = $location->field_location_grid_x['und'][0]['value'];
+  $max_y = $location->field_location_grid_y['und'][0]['value'];
+
+  $x = ips_generate_db_create_x($max_x);
+  $y = ips_generate_db_create_y($max_y);
+  $columns = ips_generate_db_columns($x, $y);
+
+  // square root of total columns gives us length of each row
+  $per_row = sqrt(count($columns));
+
+  // split columns array into rows
+  $rows = array();
+  $count = 1;
+  foreach ($columns as $key => $column) {
+    $key = $key + 1;
+    $rows[$count][] = $column;
+    $int = (int)$key / (int)$per_row;
+    if (is_int($int)) {
+      $count = $count + 1;
+    }
+  }
+
+  $grid = array();
+  $select = implode(", ", $columns);
+  $table = ips_generate_db_table_name($location->nid, $max_x, $max_y);
+  $result = db_query("SELECT title, $select FROM $table, node WHERE node.nid = $table.device");
+  foreach ($result as $record) {
+
+    // reorder array into grid
+    foreach ($rows as $row) {
+      for ($i=0;$i<$max_y;$i++) {
+        $a = $i + 1;
+        $grid[$record->title][$a][] = $record->{$row[$i]};
+      }
+    }
+
+  }
+
+  return $grid;
+
+}
+
+
+
+
+
+
+
+
+
+

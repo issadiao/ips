@@ -1,0 +1,5 @@
+name = IPS Forms
+description = Implements Hook Form Alter
+package = aaa_ips
+version = 7.0
+core = 7.x

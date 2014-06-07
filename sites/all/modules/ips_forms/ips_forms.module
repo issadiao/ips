@@ -1,0 +1,113 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: issa.diao
+ * Date: 3/5/2014
+ * Time: 10:08 AM
+ */
+
+function ips_forms_menu() {
+
+  $items = array();
+
+  $items['autocomplete/items'] = array(
+    'page callback' => 'ips_forms_autocomplete_items',
+    'access callback' => 'user_is_logged_in',
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+
+}
+
+
+
+// FORM ALTER
+function ips_forms_form_alter(&$form, &$form_state, $form_id) {
+
+  if ($form_id == 'webform_client_form_10') {
+
+    //$form['#prefix'] = '<div class="form-group">';
+   // $form['#suffix'] = '</div>';
+
+    $form['submitted']['email']['#attributes']['class'][] = "form-control";
+   // $form['submitted']['email']['#prefix'] = '<div class="row-fluid">';
+   // $form['submitted']['email']['#suffix'] = '</div>';
+
+  }
+
+  // add item to inventory
+  if ($form_id == 'webform_client_form_21') {
+
+    $form['#submit'][] = 'ips_forms_add_to_inventory_submit';
+    $form['submitted']['attached_item']['#autocomplete_path'] = "autocomplete/items";
+
+  }
+
+//  if ($form_id == 'ips_orders_checklist_form') {
+//    $form['order_checklist']['#attributes'] = array('class' => array('search-form'));
+//  }
+
+}
+
+
+// add to inventory submit handler
+function ips_forms_add_to_inventory_submit($form, &$form_state) {
+
+  $values = $form_state['values']['submitted'];
+/*
+    [1] => testing123 // name
+    [2] => 1234567890 // scanner ID
+    [3] => 13 // image fid
+    [4] => 15 // associated_item
+*/
+
+  $item = array(
+    "name" => '',
+    "scanner_id" => '',
+    "image" => '',
+    "associated_item" => '',
+  );
+
+  if (isset($values[1])) {
+    $item['name'] = $values[1];
+  }
+  if (isset($values[2])) {
+    $item['scanner_id'] = $values[2];
+  }
+  if (isset($values[3])) {
+    $item['image'] = $values[3];
+  }
+  if (isset($values[4])) {
+    $item['associated_item'] = $values[4];
+  }
+
+  ips_functions_add_to_inventory($item);
+
+}
+
+
+// return autocomplete list of company items
+function ips_forms_autocomplete_items($string) {
+
+  $data = ips_functions_get_user_data();
+  $company_id = $data['company_id'];
+
+    $matches = array();
+
+    $return = db_query("SELECT n.nid, n.title
+    FROM node n, field_data_field_company fc
+    WHERE n.type = 'item'
+    AND fc.field_company_target_id = $company_id
+    AND n.nid = fc.entity_id
+    AND n.title LIKE :text LIMIT 15
+    ",array(':text' => "%".db_like($string)."%"));
+    foreach ($return as $row) {
+      $matches[$row->nid] = check_plain($row->title);
+    }
+
+    drupal_json_output($matches);
+}
+
+
+

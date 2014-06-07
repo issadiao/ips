@@ -1,0 +1,83 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: issa.diao
+ * Date: 3/5/2014
+ * Time: 10:08 AM
+ */
+
+function ips_functions_get_user_data() {
+
+  global $user;
+  $user = user_load($user->uid);
+
+  $data = array(
+    "company" => '',
+    "company_id" => $user->field_company['und'][0]['target_id'],
+    "logo" => array(),
+    "name" => $user->name,
+    "image" => array(),
+  );
+
+  if (isset($user->picture->uri)) {
+    $data['image'] = theme_image_formatter(
+      array(
+        'item' => array(
+          'uri' => $user->picture->uri,
+        ),
+        'image_style' => 'thumbnail'
+      ));
+  }
+
+  // add company name and logo
+  if (isset($user->field_company['und'][0]['target_id'])) {
+    $company = node_load($user->field_company['und'][0]['target_id']);
+    $data['company'] = $company->title;
+
+    if (isset($company->field_image['und'][0]['uri'])) {
+      $data['logo'] = theme_image_formatter(
+        array(
+          'item' => array(
+            'uri' => $company->field_image['und'][0]['uri'],
+          ),
+          'image_style' => 'medium'
+        ));
+    }
+  }
+
+  return $data;
+}
+
+function ips_functions_add_to_inventory($item) {
+
+  global $user;
+  $user = user_load($user->uid);
+
+  $node = new stdClass();
+  $node->type = 'item';
+  node_object_prepare($node);
+  $node->language = LANGUAGE_NONE;
+  $node->title = $item['name'];
+  $node->field_scanner_id['und'][0]['value'] = $item['scanner_id'];
+  $node->field_company['und'][0]['target_id'] = $user->field_company['und'][0]['target_id'];
+  $node->field_associated_items['und'][0]['target_id'] = $item['associated_item'];
+  $node->created = time();
+  $node->changed = time();
+  $node->uid = $user->uid;
+  $file = file_load($item['image']);
+  $file->status = FILE_STATUS_PERMANENT;
+  file_save($file);
+  file_usage_add($file, 'node', 'node', $user->uid);
+  $node->field_image['und'][0]['fid'] = $item['image'];
+
+  node_save($node);
+
+}
+
+
+
+
+
+
+
+

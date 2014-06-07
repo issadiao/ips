@@ -1,0 +1,5 @@
+name = IPS Device Cloud
+description = Communicates with device cloud
+package = aaa_ips
+version = 7.0
+core = 7.x

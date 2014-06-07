@@ -1,0 +1,57 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: issa.diao
+ * Date: 3/5/2014
+ * Time: 10:08 AM
+ */
+
+function ips_tracker_menu() {
+
+  // /tracker/[location-id]/[tracker-id]
+  $items['tracker/%/%'] = array(
+    'title' => '',
+    'page callback' => 'ips_tracker_display',
+    'page arguments' => array(1,2),
+    'access arguments' => array('access content'),
+  );
+
+  return $items;
+}
+
+function ips_tracker_display($location, $tracker) {
+
+  $loc = node_load($location);
+  $track = node_load($tracker);
+  $item = node_load($track->field_assigned_item['und'][0]['target_id']);
+
+  $item_photo = theme_image_formatter(
+    array(
+      'item' => array(
+        'uri' => $item->field_image['und'][0]['uri'],
+      ),
+      'image_style' => 'medium'
+    ));
+
+  $blueprint = theme_image_formatter(
+    array(
+      'item' => array(
+        'uri' => $loc->field_blueprint['und'][0]['uri'],
+      ),
+      'image_style' => 'blueprint_1000'
+    ));
+
+  $output = "<div style='float:left'><h1>" . $loc->title . " - " . $item->title . "</h1></div>";
+  $output .= "<div style='float:right'>" . $item_photo . "</div>";
+  $output .= "<div style='clear:both'></div>";
+  $output .= "<div id='blueprint' style='position:relative;width:1000px;margin:50px auto;'>" . $blueprint;
+  $output .= "<div id='blink' style='position:absolute;margin:-290px 0 0 28px;'><img src='/sites/all/themes/bootstrap/images/blinker2.gif' /></div>";
+  $output .= "</div>";
+
+
+
+ // $str .= print_r($item,TRUE);
+  return $output;
+
+
+}

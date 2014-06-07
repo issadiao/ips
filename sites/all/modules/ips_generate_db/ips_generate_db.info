@@ -1,0 +1,5 @@
+name = IPS Generate DB
+description = Creates database table for location based on grid size
+package = aaa_ips
+version = 7.0
+core = 7.x

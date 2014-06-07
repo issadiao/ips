@@ -1,0 +1,350 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: issa.diao
+ * Date: 3/5/2014
+ * Time: 10:08 AM
+ */
+
+function ips_orders_menu() {
+
+  // /orders/[company-id]
+  $items['orders/%/%'] = array(
+    'title' => '',
+    'page callback' => 'ips_orders_display',
+    'page arguments' => array(1,2),
+    'access arguments' => array('access content'),
+  );
+
+  $items['orders/check-list/%'] = array(
+    'title' => '',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ips_orders_checklist_form'),
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+
+  return $items;
+}
+
+function ips_orders_display($mode, $company) {
+
+  $order = ips_orders_return_order_ids($mode, $company);
+  $items = array();
+  if (isset($order['nids'])) {
+    $items = ips_orders_order_info($order['nids']);
+  }
+  watchdog("items", "items = " . print_r($items,TRUE));
+
+  // hide tab based on active url
+  $url = explode("/", $_SERVER['REQUEST_URI']);
+
+  // tabs
+  $output = "<div class='row'>";
+  if ($url[2] != "open") {
+    $output .= '<div class="col-sm-12 col-md-3"><a class="dashboard-link" href="/orders/open/' . $company . '">All Open Orders</a></div>';
+  }
+  if ($url[2] != "reserved") {
+    $output .= '<div class="col-sm-12 col-md-3"><a class="dashboard-link" href="/orders/reserved/' . $company . '">Reservations</a></div>';
+  }
+  if ($url[2] != "pending") {
+    $output .= '<div class="col-sm-12 col-md-3"><a class="dashboard-link" href="/orders/pending/' . $company . '">Upcoming Orders</a></div>';
+  }
+  if ($url[2] != "active") {
+    $output .= '<div class="col-sm-12 col-md-3"><a class="dashboard-link" href="/orders/active/' . $company . '">Active Orders</a></div>';
+  }
+  if ($url[2] != "closed") {
+    $output .= '<div class="col-sm-12 col-md-3"><a class="dashboard-link" href="/orders/closed/' . $company . '">Closed Orders</a></div>';
+  }
+  $output .= "</div>";
+
+  // table
+  $output .= "<h1>" . $order['title'] . "</h1>";
+
+  $output .= '<table class="table table-striped table-bordered table-condensed"><tr><th>ID</th><th>Status</th><th>Title</th><th>Start Date</th><th>End Date</th>';
+  if ($url[2] == "pending" || $url[2] == "reserved" || $url[2] == "open") {
+    $output .= '<th>Check Out</th>';
+  }
+  if ($url[2] == "active" || $url[2] == "open") {
+    $output .= '<th>Check In</th>';
+  }
+  $output .= '<th></th></tr>';
+
+  foreach ($items as $value => $item) {
+    $output .= "<tr><td>$value</td><td>" . $item['status'] . "<td>" . $item['title'] . "</td><td>" . $item['start_date'] . "</td><td>" . $item['end_date'] . "</td>";
+    if ($url[2] == "pending" || $url[2] == "reserved" || $url[2] == "open") {
+      $output .= '<td>check out link</td>';
+    }
+    if ($url[2] == "active" || $url[2] == "open") {
+      $output .= '<td>check in link</td>';
+    }
+    $output .= '<td><a href="/node/' . $value  . '/edit">edit</a></td></tr>';
+  }
+
+  $output .= "</table>";
+
+  return $output;
+
+
+}
+
+// return array of order nids for a company
+function ips_orders_return_order_ids($mode, $company) {
+
+  switch ($mode) {
+
+    case "reserved":
+      $title = "Reservations";
+      $value = "= 0";
+    break;
+
+    case "pending":
+      $title = "Pending Orders";
+      $value = "= 1";
+    break;
+
+    case "active":
+      $title = "Active Orders";
+      $value = "= 2";
+    break;
+
+    case "open":
+      $title = "Open Orders";
+      $value = "IN (0,1,2)";
+    break;
+
+    case "closed":
+      $title = "Closed Orders";
+      $value = "= 3";
+    break;
+
+  }
+
+  $order = array();
+  $order['title'] = $title;
+
+  $result = db_query("SELECT n.nid, n.title
+  FROM node n, field_data_field_order_status fos, field_data_field_company fc
+  WHERE n.type = 'order'
+  AND n.nid = fos.entity_id
+  AND fc.entity_id = n.nid
+  AND fc.field_company_target_id = :id
+  AND fos.field_order_status_value $value
+  ", array(":id" => $company));
+  foreach ($result as $record) {
+    $order['nids'][] = $record->nid;
+  }
+
+  return $order;
+
+}
+
+// get order details from nids
+function ips_orders_order_info($nids) {
+
+  $items = array();
+  $ids = implode(",", $nids);
+
+  $result = db_query("SELECT n.nid, n.title, fod.field_order_dates_cid AS cid, os.field_order_status_value AS status
+  FROM node n, field_data_field_order_dates fod, field_data_field_order_status os
+  WHERE n.nid IN ($ids)
+  AND fod.entity_id = n.nid
+  AND os.entity_id = n.nid
+  ");
+  foreach ($result as $record) {
+    $items[$record->nid] = array(
+      "title" => $record->title,
+      "start_date" => ips_orders_start_and_end_dates($record->cid),
+      "end_date" => ips_orders_start_and_end_dates($record->cid, -1),
+      "status" => $record->status,
+    );
+  }
+
+  return $items;
+
+}
+
+// find start and end dates of orders
+function ips_orders_start_and_end_dates($cid, $dir = 1) {
+
+  $order = "order by date ASC";
+  if ($dir == -1) {
+    $order = "order by date DESC";
+  }
+
+  $date = '';
+
+  $result = db_query("SELECT date
+  FROM availability_calendar_availability
+  WHERE cid = :cid
+  $order
+  LIMIT 1
+  ", array(":cid" => $cid));
+  foreach ($result as $record) {
+    $date = date("D m/d/y", strtotime($record->date));
+  }
+
+  return $date;
+
+}
+
+function ips_orders_checklist_form($form) {
+
+
+  $order = node_load(arg(2));
+
+  $form['#attached']['js'] = array(
+    drupal_get_path('module', 'ips_orders') . '/js/ips_orders.js',
+  );
+
+  $form['text'] = array(
+    '#type' => 'item',
+    '#markup' => "<div><h1>" . $order->title . " Checklist</h1></div>",
+  );
+
+  $form['scanner'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Item ID'),
+    '#size' => 60,
+    '#maxlength' => 128,
+    '#required' => FALSE,
+
+  );
+
+  $header = array(
+    "id" => "ID",
+    "title" => "TITLE",
+  );
+
+  $items = ips_orders_items_in_order($order->nid);
+  $items = ips_orders_extract_duplicate_items_from_order($items);
+
+
+  $form['order_checklist'] = array(
+    '#title' => t('Order Checklist'),
+    '#type' => 'tableselect',
+    '#header' => $header,
+    '#options' => $items,
+    '#empty' => t('No items available'),
+    '#required' => FALSE,
+    '#multiple' => TRUE,
+    '#attributes' => array("class" => array("unstriped")),
+  );
+
+  $form['sounds'] = array(
+    '#type' => 'item',
+    '#markup' => '<audio id="bad"><source src="/sites/all/themes/bootstrap/audio/car_horn.mp3" type="audio/mpeg"></source></audio>
+    <audio id="good"><source src="/sites/all/themes/bootstrap/audio/bike_horn.mp3" type="audio/mpeg"></source></audio>',
+  );
+
+  $form['submit_button'] = array(
+    '#type' => 'submit',
+    '#value' => t('Click Here!'),
+  );
+
+
+  return $form;
+
+}
+
+
+
+function ips_orders_items_in_order($order_id) {
+
+  $items = array();
+
+  $result = db_query("SELECT n.title, n.nid, sid.field_scanner_id_value AS id
+  FROM node n, field_data_field_order_items oi, field_data_field_scanner_id sid
+  WHERE oi.entity_id = :order
+  AND oi.field_order_items_target_id = n.nid
+  AND sid.entity_id = n.nid
+  ", array(":order" => $order_id));
+  foreach ($result as $record) {
+    // add item
+    $items[$record->id] = array(
+      "id" => $record->id,
+      "title" => $record->title,
+    );
+
+    // check for sub-items
+    $result2 = db_query("SELECT n.title, sid.field_scanner_id_value AS id
+    FROM field_data_field_associated_items ai, node n, field_data_field_scanner_id sid
+    WHERE ai.entity_id = :nid
+    AND n.nid = ai.field_associated_items_target_id
+    AND sid.entity_id = n.nid
+    ", array(":nid" => $record->nid));
+    foreach ($result2 as $record2) {
+      // add sub-item
+
+      $id2 = $record2->id;
+
+      // allow duplicates
+      if (isset($items[$id2])) {
+        $id2 = $record2->id . "-2";
+      }
+      if (isset($items[$id2])) {
+        $new_id = explode("-", $id2);
+        $new_id = $new_id[1] + 1;
+        $id2 = $record2->id . "-" . $new_id;
+      }
+
+      $items[$id2] = array(
+        "id" => $record2->id,
+        "title" => $record2->title,
+      );
+    }
+
+  }
+
+  return $items;
+
+}
+
+// extract duplicate IDs from order
+function ips_orders_extract_duplicate_items_from_order($items) {
+
+  $joined = array();
+
+  // find keys containing "-"
+  $keys = array_keys($items);
+  foreach ($keys as $key) {
+    $pos = strpos($key, '-');
+    if ($pos !== false) {
+      $exploded = explode("-", $key);
+      $dupe_keys[] = $exploded[0];
+    }
+  }
+  $count = array_count_values($dupe_keys);
+  $duplicates = array_unique($dupe_keys);
+
+
+  foreach ($items as $value => $item) {
+
+    if (in_array($item['id'], $duplicates)) {
+
+      // add to dupes array
+      $total = $count[$item['id']] + 1;
+      $dupes[$item['id']] = array(
+        "id" => $item['id'],
+        "title" => $item['title'] . " x " . $total,
+      );
+      // remove from items array
+      unset($items[$value]);
+
+    }
+
+  }
+
+  $items = array_merge($items, $dupes);
+
+  return $items;
+}
+
+
+
+
+
+
+
+

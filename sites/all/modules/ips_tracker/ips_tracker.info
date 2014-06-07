@@ -1,0 +1,5 @@
+name = IPS Tracker
+description = tracks items
+package = aaa_ips
+version = 7.0
+core = 7.x

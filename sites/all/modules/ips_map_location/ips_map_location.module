@@ -1,0 +1,254 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: issa.diao
+ * Date: 3/5/2014
+ * Time: 10:08 AM
+ */
+
+function ips_map_location_menu() {
+
+  $items['admin/map/location'] = array(
+    'title' => 'Map a Location',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ips_map_location_form'),
+    'access arguments' => array('administer blocks'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['admin/map/location/%'] = array(
+    'title' => 'Record Map Location',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ips_map_location_record_form',3),
+    'access arguments' => array('administer blocks'),
+  );
+
+  $items['admin/map/display/%'] = array(
+    'title' => 'Display Mapped Values',
+    'page callback' => 'ips_map_location_display_values',
+    'page arguments' => array(3),
+    'access arguments' => array('administer blocks'),
+  );
+
+  return $items;
+}
+
+// form to map rssi to database
+function ips_map_location_record_form($form, &$form_state, $value) {
+
+  $coordinators = array();
+  $result = db_query("SELECT title, nid FROM node WHERE type = 'coordinator'");
+  foreach ($result as $record) {
+    $coordinators[$record->nid] = $record->title;
+  }
+
+  $form['coordinator'] = array(
+    '#type' => 'select',
+    '#title' => "Select Coordinator",
+    '#options' => $coordinators,
+  );
+
+  $trackers = array();
+  $result = db_query("SELECT title, nid FROM node WHERE type = 'tracker'");
+  foreach ($result as $record) {
+    $trackers[$record->nid] = $record->title;
+  }
+
+  $form['tracker'] = array(
+    '#type' => 'select',
+    '#title' => "Select Tracker",
+    '#options' => $trackers,
+  );
+
+  $node = node_load($value);
+  $x = $node->field_location_grid_x['und'][0]['value'];
+  $y = $node->field_location_grid_y['und'][0]['value'];
+  $array_x = ips_generate_db_create_x($x);
+  $array_y = ips_generate_db_create_y($y);
+  $array_x = array_combine($array_x, $array_x);
+  $array_y = array_combine($array_y, $array_y);
+
+  $form['x'] = array(
+    '#type' => 'select',
+    '#title' => "Column",
+    '#options' => $array_x,
+  );
+
+  $form['y'] = array(
+    '#type' => 'select',
+    '#title' => "Row",
+    '#options' => $array_y,
+  );
+
+  $form['location'] = array(
+    '#type' => 'hidden',
+    '#value' => $value,
+  );
+
+  $form['location_name'] = array(
+    '#type' => 'hidden',
+    '#value' => $node->title,
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Record Signal Strength',
+  );
+
+  return $form;
+
+
+}
+
+function ips_map_location_record_form_submit($form, &$form_state) {
+
+  $values = $form_state['values'];
+  $location = node_load($values['location']);
+  $nid = $location->nid;
+  $max_x = $location->field_location_grid_x['und'][0]['value'];
+  $max_y = $location->field_location_grid_y['und'][0]['value'];
+  $place = $location->title;
+  $coordinator = node_load($values['coordinator']);
+  $c_nid = $coordinator->nid;
+  $tracker = node_load($values['tracker']);
+  $endpoint = $tracker->field_device_id['und'][0]['value'];
+  $x = $values['x'];
+  $y = $values['y'];
+  $column = $x.$y;
+
+  // @TODO foreach coordinator record values at the same time
+  $device = $coordinator->field_device_id['und'][0]['value'];
+
+  $rssi = ips_devicecloud_return_rssi($device, $endpoint);
+
+  // insert into DB
+  $table = ips_generate_db_table_name($nid, $max_x, $max_y);
+  $sql = "INSERT INTO $table SET device = $c_nid, $column = $rssi
+  ON DUPLICATE KEY UPDATE $column = $rssi";
+  db_query($sql);
+
+  drupal_set_message("Success! $place position $x$y has been mapped for Coordinator " . $coordinator->title . " ($device) with a value of $rssi. $sql");
+
+
+}
+
+// form to choose which location to map
+function ips_map_location_form($form_state) {
+
+  $form['info'] = array(
+    '#markup' => t('Choose a location to map.'),
+  );
+
+  $locations = array();
+  $result = db_query("SELECT title, nid FROM node WHERE type = 'location'");
+  foreach ($result as $record) {
+    $locations[$record->nid] = $record->title;
+  }
+
+  $form['location'] = array(
+    '#type' => 'select',
+    '#options' => $locations,
+  );
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Submit',
+  );
+
+  return $form;
+
+}
+
+function ips_map_location_form_submit($form, &$form_state) {
+
+  $location = $form_state['values']['location'];
+
+  $form_state['redirect'] = "admin/map/location/" . $location;
+
+}
+
+function ips_map_location_display_values($location) {
+
+  $location = node_load($location);
+  $grid = ips_generate_db_read_table_values($location->nid);
+  $max_x = $location->field_location_grid_x['und'][0]['value'];
+  $x = ips_generate_db_create_x($max_x);
+  $output = "<h1>" . $location->title . "</h1>";
+
+  foreach ($grid as $title => $tables) {
+    $output .= "<table>";
+    // add letters
+    $output .= "<tr><th>$title</th>";
+    foreach ($x as $letter) {
+      $output .= "<th>$letter</th>";
+    }
+    $output .= "</tr>";
+    // add number rows
+    foreach ($tables as $number => $table) {
+      $output .= "<tr><th>$number</th>";
+      foreach ($table as $cell) {
+        $output .= "<td>$cell</td>";
+      }
+      $output .= "</tr>";
+    }
+    $output .= "</table>";
+  }
+
+return $output;
+
+}
+
+
+
+
+// table
+/*
+ * $max_x = $location->field_location_grid_x['und'][0]['value'];
+  $max_y = $location->field_location_grid_y['und'][0]['value'];
+
+  $x = ips_generate_db_create_x($max_x);
+  $y = ips_generate_db_create_y($max_y);
+  $columns = ips_generate_db_columns($x, $y);
+  $select = implode(", ", $columns);
+
+  // split by first letter
+  $split = array();
+  foreach ($columns as $item) {
+    $split[$item[0]][] = $item;
+  }
+
+  $count = count($split);
+  $i = 0;
+
+  $table = ips_generate_db_table_name($nid, $max_x, $max_y);
+  $result = db_query("SELECT node.title, $select FROM $table, node WHERE node.nid = $table.device");
+  foreach ($result as $record) {
+
+    $output .= "<p>" . $record->title . "</p>";
+    $output .= "<table border='1' cellpadding='5' cellspacing='5'><tr><th></th>";
+
+    // letter headers
+    foreach ($x as $letter) {
+      $output .= "<th>$letter</th>";
+    }
+    $output .= "</tr>";
+
+    foreach ($y as $number) {
+      // create rows
+      $row = "<tr><th>$number</th>";
+      foreach ($split as $values) {
+        $row .= "<td>" . $record->{$values[$i]} . "</td>";
+      }
+      $i = $i + 1;
+      $output .= "$row</tr>";
+
+    }
+
+    $output .= "</table>";
+
+  }
+ */
+
+
+
+

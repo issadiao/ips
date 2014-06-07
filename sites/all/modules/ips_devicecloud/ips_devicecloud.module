@@ -1,0 +1,216 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: issa.diao
+ * Date: 3/5/2014
+ * Time: 10:08 AM
+ */
+
+function ips_devicecloud_menu() {
+
+  $items['cloud'] = array(
+    'title' => 'API Responses',
+    'page callback' => 'ips_devicecloud_resonse',
+    'access arguments' => array('administer blocks'),
+  );
+
+  return $items;
+}
+
+function ips_devicecloud_resonse() {
+
+/*  $str = '';
+  // $str = ips_devicecloud_device_info();
+ $xbee_list = ips_devicecloud_xbee_list();
+  foreach ($xbee_list as $key => $list) {
+    $str .= "<br>$key</br>";
+    foreach ($list as $param => $value) {
+      if ($param == "xpNodeType") {
+        switch ($value) {
+          case 1:
+            $value = "ROUTER";
+          break;
+          case 2:
+            $value = "END POINT";
+          break;
+        }
+      }
+      $str .= "$param - $value<br>";
+    }
+  }
+
+  $str .= "<br><br>ROUTERS<br>";
+  $routers = ips_devicecloud_list_device_type($xbee_list, 1);
+  $str .= print_r($routers,TRUE);
+
+  $str .= "<br><br>ENDPOINTS<br>";
+  $endpoints = ips_devicecloud_list_device_type($xbee_list, 2);
+  $str .= print_r($endpoints,TRUE);
+
+  $str .= "<br><br>" . print_r(ips_devicecloud_device_info(),TRUE);
+
+  $str .= "<br><br>DEVICE STATUS<br>" . print_r(ips_devicecloud_device_status(),TRUE);
+
+  $str .= "<br><br>RSSI = " . ips_devicecloud_return_rssi();
+*/
+  $str = ips_devicecloud_rssi_of_all_endpoints();
+  return $str;
+
+
+}
+
+// make API call
+function ips_devicecloud_api_get($url, $data = '', $type = 'GET') {
+
+  $auth = base64_encode("issadiao:gcfXXX890)(*");
+  $options = array(
+    'method' => $type,
+    'data' => $data,
+    'timeout' => 15,
+    'headers' => array(
+      'Content-Type' => 'application/json',
+      'Authorization' => 'Basic ' . $auth,
+    ),
+  );
+  $result = drupal_http_request($url, $options);
+  return $result;
+
+}
+
+// list all routers
+function ips_devicecloud_list_device_type($device_list, $type) {
+
+  $devices = array();
+  foreach ($device_list as $key => $list) {
+
+    foreach ($list as $param => $value) {
+      if ($param == 'xpNodeType' && $value == $type) {
+        $devices[] = $key;
+      }
+    }
+
+  }
+
+  return $devices;
+
+}
+
+
+// get full list of devices connected to hub
+function ips_devicecloud_xbee_list($id = "00000000-00000000-00409DFF-FF5FF426") {
+
+  $url = "https://login.etherios.com/ws/XbeeCore/.json?condition=devConnectwareId='$id'&cache=false";
+
+  $result = ips_devicecloud_api_get($url);
+
+  $json = json_decode($result->data);
+
+  $devices = array();
+
+  foreach ($json->items as $items) {
+
+    $devices[$items->xpExtAddr]["xpNodeType"] = $items->xpNodeType;
+    $devices[$items->xpExtAddr]["xpNetAddr"] = $items->xpNetAddr;
+    $devices[$items->xpExtAddr]["xpParentAddr"] = $items->xpParentAddr;
+    $devices[$items->xpExtAddr]["xpDiscoveryIndex"] = $items->xpDiscoveryIndex;
+    $devices[$items->xpExtAddr]["xmtModuleTypeDesc"] = $items->xmtModuleTypeDesc;
+
+  }
+
+  return $devices;
+
+}
+
+
+// get data of main network device
+function ips_devicecloud_device_info($id = 1174160) {
+
+  $url = "https://login.etherios.com/ws/DeviceCore/$id.json";
+  $result = ips_devicecloud_api_get($url);
+  $json = json_decode($result->data);
+  return $json->items[0];
+
+}
+
+// get data of main network device
+function ips_devicecloud_device_status($id = "00000000-00000000-00409DFF-FF5FF426") {
+
+  $url = "https://login.etherios.com/ws/sci";
+  $data = '<sci_request version="1.0">
+          <send_message cache="false">
+            <targets>
+              <device id="' . $id . '" />
+            </targets>
+          <rci_request version="1.1">
+            <query_state>
+              <device_stats />
+            </query_state>
+            </rci_request>
+          </send_message>
+          </sci_request>';
+
+  $xml = ips_devicecloud_api_get($url, $data, "POST");
+  $result = new SimpleXMLElement($xml->data);
+
+
+  return $result;
+
+}
+
+
+function ips_devicecloud_return_rssi($device = "00000000-00000000-00409DFF-FF5FF426", $endpoint = "00:13:A2:00:40:AE:BA:2A") {
+
+  $rssi = 0;
+
+  $url = "https://login.etherios.com/ws/sci";
+  $data = '<sci_request version="1.0">
+          <send_message cache="false">
+            <targets>
+              <device id="' . $device . '" />
+            </targets>
+            <rci_request version="1.1">
+                <do_command target="zigbee">
+                  <query_state addr="' . $endpoint . '!">
+                  </query_state>
+                </do_command>
+            </rci_request>
+          </send_message>
+          </sci_request>';
+
+  $xml = ips_devicecloud_api_get($url, $data, "POST");
+  $result = new SimpleXMLElement($xml->data);
+  if (isset($result->send_message->device->rci_reply->do_command->query_state->radio->rssi)) {
+    $rssi = $result->send_message->device->rci_reply->do_command->query_state->radio->rssi;
+  }
+
+  return $rssi;
+}
+
+
+// for a device, return rssi values of all endpoints
+function ips_devicecloud_rssi_of_all_endpoints($id = "00000000-00000000-00409DFF-FF5FF426") {
+
+  $output = '';
+
+  $xbee_list = ips_devicecloud_xbee_list($id);
+  $endpoints = ips_devicecloud_list_device_type($xbee_list, 2);
+  foreach ($endpoints as $key => $endpoint) {
+
+    $output .= ips_devicecloud_return_rssi($id, $key . "!");
+
+  }
+
+  return $output;
+
+}
+
+
+
+
+
+
+
+
+
+
+
