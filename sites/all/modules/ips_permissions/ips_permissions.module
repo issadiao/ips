@@ -8,17 +8,24 @@
 
 function ips_permissions_node_access($node, $op, $account) {
 
-  //watchdog ("permissions", "account = " . print_r($account,TRUE) . " AND NODE = " . print_r($node,TRUE));
-
-  $match = ips_permissions_item_matches_user_company($account->uid, $node->field_company['und'][0]['target_id']);
-
+  if ($node->type == "item") {
+    $match = ips_permissions_item_matches_user_company($account->uid, $node->field_company['und'][0]['target_id']);
+    if (!$match) {
+      return NODE_ACCESS_DENY;
+    }
+  }
 
 }
 
 function ips_permissions_item_matches_user_company($uid, $company_id) {
 
   $user = user_load($uid);
-  watchdog("user","company id = $company_id and user= " . print_r($user,TRUE));
+  $user_company = $user->field_company['und'][0]['target_id'];
+  if ($user_company == $company_id) {
+    return TRUE;
+  }
+
+  return FALSE;
 
 }
 
