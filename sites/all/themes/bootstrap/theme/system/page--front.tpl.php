@@ -98,6 +98,25 @@
 <div class="shadow2"></div>
 </div>
 
+  <div class="row gradient large-text">
+    <div class="container">
+      <h1>Manage your inventory like never before</h1>
+      <p>
+        Some marketing language goes here explaining all the benefits of our systems. Maybe some bullet points? That would be cool.
+      </p>
+      <ul>
+        <li>Cloud based inventory control</li>
+        <li>Track item locations inside your warehouse</li>
+        <li>Track items around the world</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="barcode"></div>
+    <div class="shadow2"></div>
+  </div>
+
 <div class="row trucks large-text">
   <div class="container">
     <div class="pull-left col-xs-12 col-md-5">
@@ -115,20 +134,6 @@
 <div class="barcode"></div>
 <div class="shadow2"></div>
 </div>
-
-  <div class="row gradient large-text">
-    <div class="container">
-      <h1>Manage your inventory like never before</h1>
-      <p>
-        Some marketing language goes here explaining all the benefits of our systems. Maybe some bullet points? That would be cool.
-      </p>
-      <ul>
-        <li>Cloud based inventory control</li>
-        <li>Track item locations inside your warehouse</li>
-        <li>Track items around the world</li>
-      </ul>
-    </div>
-  </div>
 
 <footer class="footer container">
   <?php print render($page['footer']); ?>
