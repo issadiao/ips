@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="page--dashboard.tpl.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="page--dashboard.tpl.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="82" selection-start="5003" selection-end="5003" vertical-scroll-proportion="0.55684453" vertical-offset="0" max-vertical-offset="1293">
+            <state line="120" column="82" selection-start="5003" selection-end="5003" vertical-scroll-proportion="-30.0" vertical-offset="0" max-vertical-offset="1080">
               <folding />
             </state>
           </provider>
@@ -105,19 +105,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ips_permissions.info" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_permissions/ips_permissions.info">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="30" selection-start="53" selection-end="53" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ips_permissions.module" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ips_permissions.module" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_permissions/ips_permissions.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="816" selection-end="816" vertical-scroll-proportion="-20.625" vertical-offset="0" max-vertical-offset="585">
+            <state line="33" column="0" selection-start="838" selection-end="838" vertical-scroll-proportion="0.38283062" vertical-offset="0" max-vertical-offset="1293">
               <folding>
                 <element signature="e#6#92#0" expanded="true" />
               </folding>
@@ -176,8 +167,8 @@
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--front.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/css/custom.css" />
         <option value="$PROJECT_DIR$/sites/all/modules/ips_permissions/ips_permissions.info" />
-        <option value="$PROJECT_DIR$/sites/all/modules/ips_permissions/ips_permissions.module" />
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/modules/ips_permissions/ips_permissions.module" />
       </list>
     </option>
   </component>
@@ -943,19 +934,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_permissions/ips_permissions.module">
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="816" selection-end="816" vertical-scroll-proportion="-20.625" vertical-offset="0" max-vertical-offset="585">
-          <folding>
-            <element signature="e#6#92#0" expanded="true" />
-          </folding>
+        <state line="120" column="82" selection-start="5003" selection-end="5003" vertical-scroll-proportion="-30.0" vertical-offset="0" max-vertical-offset="1080">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php">
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_permissions/ips_permissions.module">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="82" selection-start="5003" selection-end="5003" vertical-scroll-proportion="0.55684453" vertical-offset="0" max-vertical-offset="1293">
-          <folding />
+        <state line="33" column="0" selection-start="838" selection-end="838" vertical-scroll-proportion="0.38283062" vertical-offset="0" max-vertical-offset="1293">
+          <folding>
+            <element signature="e#6#92#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
