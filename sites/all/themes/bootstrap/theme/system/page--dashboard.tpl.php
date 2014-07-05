@@ -118,7 +118,7 @@
         <div class="col-sm-12 col-md-4"><a class="dashboard-link" href="/orders/open/<?php echo $data['company_id']; ?>">See All Orders</a></div>
         <div class="col-sm-12 col-md-4"><a class="dashboard-link" href="/node/add/item">Check-out an Order</a></div>
         <div class="col-sm-12 col-md-4"><a class="dashboard-link" href="/node/add/item">Check-in an Order</a></div>
-        <div class="col-sm-12 col-md-4"><a class="dashboard-link" href="/node/add/item">Search Inventory</a></div>
+        <div class="col-sm-12 col-md-4"><a class="dashboard-link" href="/inventory">Search Inventory</a></div>
 
       </div>
 
