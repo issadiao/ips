@@ -99,6 +99,9 @@
 </div>
 
   <div class="row gradient large-text">
+
+    <div class="desktop-spacer col-xs-12"></div>
+
     <div class="container">
       <h1>Manage your inventory like never before</h1>
       <p>
@@ -110,6 +113,9 @@
         <li>Track items around the world</li>
       </ul>
     </div>
+
+    <div class="desktop-spacer col-xs-12"></div>
+
   </div>
 
   <div class="row">

@@ -1,7 +1,7 @@
 body {
     background-image: linear-gradient(-45deg, transparent, transparent 25%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 50%, transparent 50%, transparent 75%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0.2));
     background-size: 2px 2px;
-    background-color: #36414e;
+    background-color: #8098b5;
 }
 
 .wrapper {
@@ -128,4 +128,8 @@ tr.checked {
 .dashboard-link:hover {
     background-color:#dddddd;
     text-decoration:none;
+}
+
+.desktop-spacer {
+    height:20px;
 }
