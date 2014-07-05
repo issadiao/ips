@@ -8,7 +8,7 @@
 
 function ips_permissions_node_access($node, $op, $account) {
 
-  watchdog ("permissions", "fired = " . print_r($op,TRUE));
+  watchdog ("permissions", "account = " . print_r($account,TRUE) . " AND NODE = " . print_r($node,TRUE));
 
 
 }
