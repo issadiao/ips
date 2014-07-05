@@ -82,6 +82,9 @@
 </div>
 
 <div class="row toprow large-text">
+
+  <div class="desktop-spacer col-xs-12"></div>
+
   <div class="container">
     <div class="pull-left col-xs-12 col-md-6">
       <h1>Realtime Inventory Data You Can Access From Anywhere</h1>
@@ -91,6 +94,9 @@
       <img class="img-responsive" src="/sites/all/themes/bootstrap/images/form-factors.png" />
     </div>
   </div>
+
+  <div class="desktop-spacer col-xs-12"></div>
+
 </div>
 
 <div class="row">
@@ -99,8 +105,6 @@
 </div>
 
   <div class="row gradient large-text">
-
-    <div class="desktop-spacer col-xs-12"></div>
 
     <div class="container">
       <h1>Manage your inventory like never before</h1>
@@ -113,8 +117,6 @@
         <li>Track items around the world</li>
       </ul>
     </div>
-
-    <div class="desktop-spacer col-xs-12"></div>
 
   </div>
 
