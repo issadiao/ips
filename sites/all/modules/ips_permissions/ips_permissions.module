@@ -17,6 +17,7 @@ function ips_permissions_node_access($node, $op, $account) {
 
 }
 
+// final line of defense. prevent users from viewing/editing nodes from other companies. With only this, they will still see results in searches, etc.
 function ips_permissions_item_matches_user_company($uid, $company_id) {
 
   $user = user_load($uid);
@@ -28,6 +29,5 @@ function ips_permissions_item_matches_user_company($uid, $company_id) {
   return FALSE;
 
 }
-
 
 
