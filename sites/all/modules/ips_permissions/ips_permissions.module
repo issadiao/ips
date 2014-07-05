@@ -1,0 +1,19 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: issa.diao
+ * Date: 3/5/2014
+ * Time: 10:08 AM
+ */
+
+function ips_permissions_node_access($node, $op, $account) {
+
+  watchdog ("permissions", "fired");
+
+
+}
+
+
+
+
+
