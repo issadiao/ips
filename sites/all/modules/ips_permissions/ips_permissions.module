@@ -18,7 +18,7 @@ function ips_permissions_node_access($node, $op, $account) {
 function ips_permissions_item_matches_user_company($uid, $company_id) {
 
   $user = user_load($uid);
-  watchdog("user","company id = $company_id and user= " . print_r($user));
+  watchdog("user","company id = $company_id and user= " . print_r($user,TRUE));
 
 }
 
