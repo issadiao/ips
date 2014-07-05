@@ -126,6 +126,9 @@
   </div>
 
 <div class="row trucks large-text">
+
+  <div class="desktop-spacer col-xs-12 hidden-xs hidden-sm"></div>
+
   <div class="container">
     <div class="pull-left col-xs-12 col-md-5">
       <img class="img-responsive" src="/sites/all/themes/bootstrap/images/globe.png" />
@@ -136,6 +139,9 @@
     </div>
 
   </div>
+
+  <div class="desktop-spacer col-xs-12 hidden-xs hidden-sm"></div>
+
 </div>
 
 <div class="row">
