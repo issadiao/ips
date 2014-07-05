@@ -83,7 +83,7 @@
 
 <div class="row toprow large-text">
 
-  <div class="desktop-spacer col-xs-12"></div>
+  <div class="desktop-spacer col-xs-12 hidden-xs hidden-sm"></div>
 
   <div class="container">
     <div class="pull-left col-xs-12 col-md-6">
@@ -95,7 +95,7 @@
     </div>
   </div>
 
-  <div class="desktop-spacer col-xs-12"></div>
+  <div class="desktop-spacer col-xs-12 hidden-xs hidden-sm"></div>
 
 </div>
 
