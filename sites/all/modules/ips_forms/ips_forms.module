@@ -58,7 +58,7 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
     $form['field_manufacturer_target_id'] = array(
       '#type' => "select",
       '#title' => "",
-      '#options' => $options,
+      '#options' => ips_functions_list_all_manufacturers_for_company(),
     );
 
   }

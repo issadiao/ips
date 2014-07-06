@@ -48,6 +48,30 @@ function ips_functions_get_user_data() {
   return $data;
 }
 
+function ips_functions_list_all_manufacturers_for_company() {
+
+  $manufacturers = array();
+
+  global $user;
+  $user = user_load($user->uid);
+  $company = $user->field_company['und'][0]['target_id'];
+
+  $result = db_query("SELECT n.nid, n.title
+  FROM node n, field_data_field_manufacturer dfm, field_data_field_company dfc, node i
+  WHERE dfm.entity_id = n.nid
+  AND i.type = 'item'
+  AND i.nid = dfc.entity_id
+  AND i.nid = dfm.entity_id
+  AND dfc.field_company_target_id = $company
+  ");
+  foreach ($result as $record) {
+    $manufacturers[$record->nid] = $record->title;
+  }
+
+  return $manufacturers;
+
+}
+
 function ips_functions_add_to_inventory($item) {
 
   global $user;
