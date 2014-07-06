@@ -50,6 +50,7 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
 
   if ($form_id == "views_exposed_form_inventory_page") {
 
+    watchdog("form", "form = " . print_r($form_state,TRUE));
     $form['field_manufacturer_target_id']['#default_value'] = "test";
 
   }
