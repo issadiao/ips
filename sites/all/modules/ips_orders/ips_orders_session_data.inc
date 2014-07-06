@@ -2,12 +2,9 @@
 
 class orderSession {
 
-  private static $_sessionStarted = FALSE;
-
   public static function start() {
-    if (self::$_sessionStarted == FALSE) {
+    if (!isset($_SESSION)) {
       session_start();
-      self::$_sessionStarted == TRUE;
     }
   }
 
@@ -30,6 +27,6 @@ class orderSession {
     }
   }
 
-  
+
 
 }
