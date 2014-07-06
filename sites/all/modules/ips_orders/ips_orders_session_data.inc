@@ -19,7 +19,7 @@ class orderSession {
     if (isset($_SESSION['order'])) {
       $items = array();
       foreach ($_SESSION['order'] as $key => $item) {
-        $items[$item[$key]] = $item['title'];
+        $items[$key] = $item['title'];
       }
       return $items;
     } else {
