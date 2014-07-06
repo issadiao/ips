@@ -60,6 +60,9 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
       '#options' => $options,
     );
 
+    $form['field_scanner_id_value']['#size'] = 15;
+    $form['title']['#size'] = 15;
+
   }
 
 }

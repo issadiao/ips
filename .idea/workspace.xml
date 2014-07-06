@@ -47,9 +47,9 @@
       <file leaf-file-name="ips_forms.module" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_forms/ips_forms.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="28" selection-start="1519" selection-end="1519" vertical-scroll-proportion="0.5452436" vertical-offset="105" max-vertical-offset="1920">
+            <state line="63" column="16" selection-start="1596" selection-end="1596" vertical-scroll-proportion="0.5916473" vertical-offset="105" max-vertical-offset="1965">
               <folding>
-                <marker date="1404612650000" expanded="true" signature="2474:2680" placeholder="SELECT n.nid..node..." />
+                <marker date="1404612815000" expanded="true" signature="2560:2766" placeholder="SELECT n.nid..node..." />
               </folding>
             </state>
           </provider>
@@ -995,9 +995,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_forms/ips_forms.module">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="28" selection-start="1519" selection-end="1519" vertical-scroll-proportion="0.5452436" vertical-offset="105" max-vertical-offset="1920">
+        <state line="63" column="16" selection-start="1596" selection-end="1596" vertical-scroll-proportion="0.5916473" vertical-offset="105" max-vertical-offset="1965">
           <folding>
-            <marker date="1404612650000" expanded="true" signature="2474:2680" placeholder="SELECT n.nid..node..." />
+            <marker date="1404612815000" expanded="true" signature="2560:2766" placeholder="SELECT n.nid..node..." />
           </folding>
         </state>
       </provider>
