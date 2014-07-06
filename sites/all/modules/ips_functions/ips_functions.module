@@ -63,6 +63,8 @@ function ips_functions_list_all_manufacturers_for_company() {
   AND i.nid = dfc.entity_id
   AND i.nid = dfm.entity_id
   AND dfc.field_company_target_id = $company
+  GROUP BY n.nid
+  ORDER BY n.title
   ");
   foreach ($result as $record) {
     $manufacturers[$record->nid] = $record->title;
