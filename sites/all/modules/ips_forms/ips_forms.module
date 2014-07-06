@@ -53,7 +53,8 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
 
     watchdog("exposed form", "form = " . print_r($form,TRUE));
 
-   $form['field_manufacturer_target_id']['#default_value'] = "test";
+   $form['field_manufacturer_target_id']['#type'] = "select";
+    $form['field_manufacturer_target_id']['#options'] = array("a" => "first", "b" => "second");
 
   }
 
