@@ -52,13 +52,12 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == "views_exposed_form" && $form['#id'] == "views-exposed-form-inventory-page") {
 
     $options[''] = "- Any -";
-    $options['33'] = "Marshall";
-    $options['34'] = "Mesa";
+    $options = array_merge($options, ips_functions_list_all_manufacturers_for_company());
 
     $form['field_manufacturer_target_id'] = array(
       '#type' => "select",
       '#title' => "",
-      '#options' => ips_functions_list_all_manufacturers_for_company(),
+      '#options' => $options,
     );
 
   }
