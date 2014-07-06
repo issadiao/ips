@@ -56,18 +56,23 @@ function ips_functions_list_all_manufacturers_for_company() {
   $user = user_load($user->uid);
   $company = $user->field_company['und'][0]['target_id'];
 
-  $result = db_query("SELECT n.nid, n.title
-  FROM node n, field_data_field_manufacturer dfm, field_data_field_company dfc, node i
-  WHERE dfm.field_manufacturer_target_id = n.nid
-  AND i.type = 'item'
-  AND i.nid = dfc.entity_id
-  AND i.nid = dfm.entity_id
-  AND dfc.field_company_target_id = $company
-  GROUP BY n.nid
-  ORDER BY n.title
-  ");
-  foreach ($result as $record) {
-    $manufacturers[$record->nid] = $record->title;
+  if (isset($user->field_company['und'][0]['target_id'])) {
+    $result = db_query("SELECT n.nid, n.title
+    FROM node n, field_data_field_manufacturer dfm, field_data_field_company dfc, node i
+    WHERE dfm.field_manufacturer_target_id = n.nid
+    AND i.type = 'item'
+    AND i.nid = dfc.entity_id
+    AND i.nid = dfm.entity_id
+    AND dfc.field_company_target_id = $company
+    GROUP BY n.nid
+    ORDER BY n.title
+    ");
+    foreach ($result as $record) {
+      $manufacturers[$record->nid] = $record->title;
+    }
+  } else {
+    // for admin
+    $manufacturers[] = "- Any -";
   }
 
   return $manufacturers;
