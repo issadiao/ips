@@ -8,7 +8,7 @@
 
 function ips_permissions_node_access($node, $op, $account) {
 
-  if (isset($node->type) && $node->type == "item" && isset($node->field_company['und'][0]['target_id'])) {
+  if (isset($node->type) && ($node->type == "item" || $node->type == "grouped_items") && isset($node->field_company['und'][0]['target_id'])) {
     $match = ips_permissions_item_matches_user_company($account->uid, $node->field_company['und'][0]['target_id']);
     if (!$match) {
       return NODE_ACCESS_DENY;
