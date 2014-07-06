@@ -51,13 +51,14 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
   // exposed views filters
   if ($form_id == "views_exposed_form") {
 
-    watchdog("exposed form", "form = " . print_r($form,TRUE));
-    
     $options['a'] = "first";
     $options['b'] = "second";
 
-   $form['field_manufacturer_target_id']['#type'] = "select";
-    $form['field_manufacturer_target_id']['#options'] = $options;
+    $form['field_manufacturer_target_id'] = array(
+      '#type' => "select",
+      '#title' => "title goes here",
+      '#options' => $options,
+    );
 
   }
 
