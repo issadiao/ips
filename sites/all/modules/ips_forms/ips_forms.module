@@ -51,14 +51,22 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
   // exposed views filters
   if ($form_id == "views_exposed_form" && $form['#id'] == "views-exposed-form-inventory-page") {
 
-    $options[''] = "- Any -";
-    $options = array_merge($options, ips_functions_list_all_manufacturers_for_company());
-
+    $manufacturers[''] = "- Any -";
+    $manufacturers = array_merge($manufacturers, ips_functions_list_all_manufacturers_for_company());
     $form['field_manufacturer_target_id'] = array(
       '#type' => "select",
       '#title' => "",
-      '#options' => $options,
+      '#options' => $manufacturers,
     );
+
+    $departments[''] = "- Any -";
+    $departments = array_merge($departments, ips_functions_list_all_departments_for_company());
+    $form['field_department_target_id'] = array(
+      '#type' => "select",
+      '#title' => "",
+      '#options' => $departments,
+    );
+
 
     $form['field_scanner_id_value']['#size'] = 15;
     $form['title']['#size'] = 15;
