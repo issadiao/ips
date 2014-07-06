@@ -48,6 +48,7 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
 //    $form['order_checklist']['#attributes'] = array('class' => array('search-form'));
 //  }
 
+  // exposed views filters
   if ($form_id == "views_exposed_form") {
 
     watchdog("exposed form", "form = " . print_r($form,TRUE));
