@@ -25,7 +25,8 @@ function ips_forms_menu() {
 // FORM ALTER
 function ips_forms_form_alter(&$form, &$form_state, $form_id) {
 
-  watchdog("form2", "form = $form_id and form= " . print_r($form_state,TRUE));
+  //watchdog("form2", "form = $form_id and form= " . print_r($form_state,TRUE));
+  watchdog("form_id", "form ID = $form_id");
 
   if ($form_id == 'webform_client_form_10') {
 
