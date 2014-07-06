@@ -51,7 +51,7 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
   // exposed views filters
   if ($form_id == "views_exposed_form") {
 
-    $options['All'] = "- Any -";
+  //  $options['All'] = "- Any -";
     $options['a'] = "first";
     $options['b'] = "second";
 
