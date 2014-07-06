@@ -25,9 +25,6 @@ function ips_forms_menu() {
 // FORM ALTER
 function ips_forms_form_alter(&$form, &$form_state, $form_id) {
 
-  //watchdog("form2", "form = $form_id and form= " . print_r($form_state,TRUE));
-  watchdog("form_id", "form ID = $form_id");
-
   if ($form_id == 'webform_client_form_10') {
 
     //$form['#prefix'] = '<div class="form-group">';
@@ -51,9 +48,11 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
 //    $form['order_checklist']['#attributes'] = array('class' => array('search-form'));
 //  }
 
-  if ($form_id == "views_exposed_form_inventory_page") {
+  if ($form_id == "views_exposed_form") {
 
-  //  $form['field_manufacturer_target_id']['#default_value'] = "test";
+    watchdog("exposed form", "form = " . print_r($form_id,TRUE));
+
+   $form['field_manufacturer_target_id']['#default_value'] = "test";
 
   }
 
