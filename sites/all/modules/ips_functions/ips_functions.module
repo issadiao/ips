@@ -58,7 +58,7 @@ function ips_functions_list_all_manufacturers_for_company() {
 
   $result = db_query("SELECT n.nid, n.title
   FROM node n, field_data_field_manufacturer dfm, field_data_field_company dfc, node i
-  WHERE dfm.entity_id = n.nid
+  WHERE dfm.field_manufacturer_target_id = n.nid
   AND i.type = 'item'
   AND i.nid = dfc.entity_id
   AND i.nid = dfm.entity_id

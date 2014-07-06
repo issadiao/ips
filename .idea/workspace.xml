@@ -35,10 +35,10 @@
       <file leaf-file-name="ips_functions.module" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_functions/ips_functions.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="24" selection-start="1692" selection-end="1692" vertical-scroll-proportion="0.7540603" vertical-offset="0" max-vertical-offset="1620">
+            <state line="60" column="40" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.63805103" vertical-offset="0" max-vertical-offset="1620">
               <folding>
-                <marker date="1404612307000" expanded="true" signature="1311:1464" placeholder="SELECT n.nid..node..." />
-                <marker date="1404612307000" expanded="true" signature="1311:1572" placeholder="SELECT n.nid..node..." />
+                <marker date="1404612386000" expanded="true" signature="1311:1483" placeholder="SELECT n.nid..node..." />
+                <marker date="1404612386000" expanded="true" signature="1311:1591" placeholder="SELECT n.nid..node..." />
               </folding>
             </state>
           </provider>
@@ -994,10 +994,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_functions/ips_functions.module">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="24" selection-start="1692" selection-end="1692" vertical-scroll-proportion="0.7540603" vertical-offset="0" max-vertical-offset="1620">
+        <state line="60" column="40" selection-start="1460" selection-end="1460" vertical-scroll-proportion="0.63805103" vertical-offset="0" max-vertical-offset="1620">
           <folding>
-            <marker date="1404612307000" expanded="true" signature="1311:1464" placeholder="SELECT n.nid..node..." />
-            <marker date="1404612307000" expanded="true" signature="1311:1572" placeholder="SELECT n.nid..node..." />
+            <marker date="1404612386000" expanded="true" signature="1311:1483" placeholder="SELECT n.nid..node..." />
+            <marker date="1404612386000" expanded="true" signature="1311:1591" placeholder="SELECT n.nid..node..." />
           </folding>
         </state>
       </provider>
