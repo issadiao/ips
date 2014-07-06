@@ -59,7 +59,6 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
       '#type' => "select",
       '#title' => "",
       '#options' => $options,
-      '#default_value' => "All",
     );
 
   }
