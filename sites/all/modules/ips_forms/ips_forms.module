@@ -48,6 +48,12 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
 //    $form['order_checklist']['#attributes'] = array('class' => array('search-form'));
 //  }
 
+  if ($form_id == "views_exposed_form_inventory_page") {
+
+    $form['field_manufacturer_target_id']['#default_value'] = "test";
+
+  }
+
 }
 
 
