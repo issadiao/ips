@@ -49,7 +49,7 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
 //  }
 
   // exposed views filters
-  if ($form_id == "views_exposed_form") {
+  if ($form_id == "views_exposed_form" && $form['#id'] == "views-exposed-form-inventory-page") {
 
     $options[''] = "- Any -";
     $options['33'] = "Marshall";
