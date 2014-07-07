@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="page--dashboard.tpl.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="page--dashboard.tpl.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="45" selection-start="3414" selection-end="3414" vertical-scroll-proportion="0.08120649" vertical-offset="0" max-vertical-offset="1293">
+            <state line="79" column="45" selection-start="3414" selection-end="3414" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="1230">
               <folding />
             </state>
           </provider>
@@ -72,10 +72,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="current_order.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="current_order.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/current_order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="4" selection-start="125" selection-end="125" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="180">
+            <state line="6" column="70" selection-start="260" selection-end="260" vertical-scroll-proportion="0.06960557" vertical-offset="0" max-vertical-offset="1293">
               <folding />
             </state>
           </provider>
@@ -181,9 +181,9 @@
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/node.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/node--item.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/ips_orders/ips_orders.module" />
-        <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/current_order.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/current_order.php" />
       </list>
     </option>
   </component>
@@ -1066,13 +1066,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/current_order.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="4" selection-start="125" selection-end="125" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="180">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="2" selection-start="3375" selection-end="3418" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="1080">
@@ -1089,7 +1082,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="45" selection-start="3414" selection-end="3414" vertical-scroll-proportion="0.08120649" vertical-offset="0" max-vertical-offset="1293">
+        <state line="79" column="45" selection-start="3414" selection-end="3414" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="1230">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/current_order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="70" selection-start="260" selection-end="260" vertical-scroll-proportion="0.06960557" vertical-offset="0" max-vertical-offset="1293">
           <folding />
         </state>
       </provider>
