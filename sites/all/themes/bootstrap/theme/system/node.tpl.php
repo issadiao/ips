@@ -1,5 +1,4 @@
 <?php
-echo "HELLO";
 /**
  * @file
  * Default theme implementation to display a node.
@@ -79,7 +78,13 @@ echo "HELLO";
  *
  * @ingroup themeable
  */
+
+
+echo drupal_render(drupal_get_form('ips_orders_node_view_form', $node->nid));
+
 ?>
+
+
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <?php print $user_picture; ?>
