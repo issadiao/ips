@@ -10,7 +10,7 @@ class orderSession {
 
   public static function addItem($nid, $title, $quantity = 1) {
     if (isset($_SESSION['order'][$nid])) {
-      $_SESSION['order'][$nid]['quantity'] = $_SESSION['order'][$nid]['quantity'] + $quantity;
+      drupal_set_message("This item has already been added to this order.");
     } else {
       $_SESSION['order'][$nid] = array(
         "title" => $title,
