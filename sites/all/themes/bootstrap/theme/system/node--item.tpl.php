@@ -79,8 +79,8 @@
  * @ingroup themeable
  */
 
-
-echo drupal_render(drupal_get_form('ips_orders_node_view_form'));
+$add_item_form = drupal_get_form('ips_orders_node_view_form');
+echo drupal_render($add_item_form);
 
 ?>
 
