@@ -13,6 +13,7 @@ function ips_functions_get_user_data() {
 
   $data = array(
     "company" => '',
+    "company_id" => '',
     "logo" => array(),
     "name" => $user->name,
     "image" => array(),
