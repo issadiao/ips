@@ -23,10 +23,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="page--dashboard.tpl.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="page--dashboard.tpl.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="111" column="2" selection-start="4303" selection-end="4303" vertical-scroll-proportion="-24.375" vertical-offset="0" max-vertical-offset="1200">
+            <state line="79" column="45" selection-start="3414" selection-end="3414" vertical-scroll-proportion="0.08120649" vertical-offset="0" max-vertical-offset="1293">
               <folding />
             </state>
           </provider>
@@ -56,18 +56,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page.tpl.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="page.tpl.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="12" selection-start="3522" selection-end="3522" vertical-scroll-proportion="0.19721578" vertical-offset="0" max-vertical-offset="1293">
+            <state line="85" column="2" selection-start="3375" selection-end="3418" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="1080">
               <folding>
-                <marker date="1404703144000" expanded="true" signature="3370:3710" placeholder="..." />
-                <marker date="1404703144000" expanded="true" signature="3564:3710" placeholder="..." />
-                <marker date="1404703144000" expanded="true" signature="3780:3809" placeholder="..." />
-                <marker date="1404703144000" expanded="true" signature="3883:3917" placeholder="..." />
-                <marker date="1404703144000" expanded="true" signature="5066:5100" placeholder="..." />
-                <marker date="1404703144000" expanded="true" signature="5235:5263" placeholder="..." />
+                <marker date="1404709057000" expanded="true" signature="3370:3606" placeholder="..." />
+                <marker date="1404709057000" expanded="true" signature="3460:3606" placeholder="..." />
+                <marker date="1404709057000" expanded="true" signature="3676:3705" placeholder="..." />
+                <marker date="1404709057000" expanded="true" signature="3779:3813" placeholder="..." />
+                <marker date="1404709057000" expanded="true" signature="4962:4996" placeholder="..." />
+                <marker date="1404709057000" expanded="true" signature="5131:5159" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="current_order.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/current_order.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="4" selection-start="125" selection-end="125" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="180">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,15 +113,6 @@
         <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_orders/ips_orders_session_data.inc">
           <provider selected="true" editor-type-id="text-editor">
             <state line="10" column="63" selection-start="190" selection-end="190" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="660">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="page--front.tpl.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--front.tpl.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="142" column="66" selection-start="5168" selection-end="5168" vertical-scroll-proportion="0.0" vertical-offset="2130" max-vertical-offset="2505">
               <folding />
             </state>
           </provider>
@@ -178,11 +178,12 @@
         <option value="$PROJECT_DIR$/sites/all/modules/ips_forms/ips_forms.module" />
         <option value="$PROJECT_DIR$/sites/all/modules/ips_orders/ips_orders_session_data.inc" />
         <option value="$PROJECT_DIR$/sites/all/modules/ips_functions/ips_functions.module" />
-        <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/node.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/node--item.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/ips_orders/ips_orders.module" />
+        <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/current_order.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php" />
       </list>
     </option>
   </component>
@@ -782,11 +783,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_generate_db/ips_generate_db.module">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="202" column="2" selection-start="4531" selection-end="4569" vertical-scroll-proportion="0.0" vertical-offset="3030" max-vertical-offset="3840" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/bootstrap_subtheme/templates/README.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1317" />
@@ -1016,13 +1012,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="111" column="2" selection-start="4303" selection-end="4303" vertical-scroll-proportion="-24.375" vertical-offset="0" max-vertical-offset="1200">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/node/node.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1317">
@@ -1077,17 +1066,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/current_order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="4" selection-start="125" selection-end="125" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="180">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="12" selection-start="3522" selection-end="3522" vertical-scroll-proportion="0.19721578" vertical-offset="0" max-vertical-offset="1293">
+        <state line="85" column="2" selection-start="3375" selection-end="3418" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="1080">
           <folding>
-            <marker date="1404703144000" expanded="true" signature="3370:3710" placeholder="..." />
-            <marker date="1404703144000" expanded="true" signature="3564:3710" placeholder="..." />
-            <marker date="1404703144000" expanded="true" signature="3780:3809" placeholder="..." />
-            <marker date="1404703144000" expanded="true" signature="3883:3917" placeholder="..." />
-            <marker date="1404703144000" expanded="true" signature="5066:5100" placeholder="..." />
-            <marker date="1404703144000" expanded="true" signature="5235:5263" placeholder="..." />
+            <marker date="1404709057000" expanded="true" signature="3370:3606" placeholder="..." />
+            <marker date="1404709057000" expanded="true" signature="3460:3606" placeholder="..." />
+            <marker date="1404709057000" expanded="true" signature="3676:3705" placeholder="..." />
+            <marker date="1404709057000" expanded="true" signature="3779:3813" placeholder="..." />
+            <marker date="1404709057000" expanded="true" signature="4962:4996" placeholder="..." />
+            <marker date="1404709057000" expanded="true" signature="5131:5159" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="45" selection-start="3414" selection-end="3414" vertical-scroll-proportion="0.08120649" vertical-offset="0" max-vertical-offset="1293">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -77,6 +77,8 @@
 
 <div class="main-container container">
 
+  <?php include_once('current_order.php'); ?>
+
   <header role="banner" id="page-header">
     <?php if (!empty($site_slogan)): ?>
       <p class="lead"><?php print $site_slogan; ?></p>

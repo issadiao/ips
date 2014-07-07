@@ -83,11 +83,7 @@ include_once('header.php');
 
 <div class="main-container container">
 
-  <?php if (isset($_SESSION['order'])) { ?>
-    <div class="col-sm-12">
-      <?php print_r(orderSession::displayItems()); ?>
-    </div>
-  <?php } ?>
+  <?php include_once('current_order.php'); ?>
 
   <header role="banner" id="page-header">
     <?php if (!empty($site_slogan)): ?>
