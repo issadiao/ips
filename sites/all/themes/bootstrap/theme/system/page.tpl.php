@@ -74,7 +74,17 @@
  */
 ?>
 
-<?php include_once('header.php'); ?>
+<?php
+include_once('header.php');
+
+if (isset($_SESSION['order'])) {
+  echo orderSession::displayItems();
+}
+
+
+?>
+
+
 
 <div class="main-container container">
 
