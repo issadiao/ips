@@ -77,18 +77,17 @@
 <?php
 include_once('header.php');
 
-if (isset($_SESSION['order'])) {
-  echo '<div class="col-sm-12">';
-  print_r(orderSession::displayItems());
-  echo '</div>';
-}
-
-
 ?>
 
 
 
 <div class="main-container container">
+
+  <?php if (isset($_SESSION['order'])) { ?>
+    <div class="col-sm-12">
+      <?php print_r(orderSession::displayItems()); ?>
+    </div>
+  <?php } ?>
 
   <header role="banner" id="page-header">
     <?php if (!empty($site_slogan)): ?>
