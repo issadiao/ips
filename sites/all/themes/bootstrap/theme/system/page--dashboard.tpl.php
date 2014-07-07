@@ -118,6 +118,8 @@
 
       <?php include_once('current_order.php'); ?>
 
+      <hr />
+
       <?php print $messages; ?>
 
 
