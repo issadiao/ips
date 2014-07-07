@@ -79,7 +79,7 @@
  * @ingroup themeable
  */
 
-$add_item_form = drupal_get_form('ips_orders_node_view_form', NULL, $node->nid, $node->title);
+$add_item_form = drupal_get_form('ips_orders_node_view_form', "test", $node->nid, $node->title);
 echo drupal_render($add_item_form);
 
 ?>
