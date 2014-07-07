@@ -343,11 +343,16 @@ function ips_orders_extract_duplicate_items_from_order($items) {
 }
 
 // form to add items directly to order
-function ips_orders_node_view_form($form) {
+function ips_orders_node_view_form($form, $nid, $title) {
 
   $form['node_id'] = array(
     '#type' => 'hidden',
-    '#default_value' => '',
+    '#default_value' => $nid,
+  );
+
+  $form['title'] = array(
+    '#type' => 'hidden',
+    '#default_value' => $title,
   );
 
   $form['submit_button'] = array(
@@ -361,14 +366,15 @@ function ips_orders_node_view_form($form) {
 
 function ips_orders_node_view_form_submit($form, &$form_state) {
 
-  watchdog("FORM", "form = " . print_r($form_state['values'],TRUE));
+  $item = $form_state['values']['node_id'];
+
 
 }
 
 function ips_orders_form_alter(&$form, &$form_state, $form_id) {
 
   if ($form_id == "ips_orders_node_view_form") {
-    $form['node_id']['#default_value'] = arg(1);
+  //  $form['node_id']['#default_value'] = arg(1);
   }
 
 }
