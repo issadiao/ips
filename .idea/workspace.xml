@@ -59,23 +59,14 @@
       <file leaf-file-name="ips_orders.module" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_orders/ips_orders.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="346" column="55" selection-start="8856" selection-end="8856" vertical-scroll-proportion="0.7679814" vertical-offset="4122" max-vertical-offset="5415">
+            <state line="353" column="15" selection-start="8987" selection-end="8987" vertical-scroll-proportion="0.8491879" vertical-offset="4122" max-vertical-offset="5415">
               <folding>
-                <marker date="1404699027000" expanded="true" signature="3599:3859" placeholder="SELECT n.nid..node..." />
-                <marker date="1404699027000" expanded="true" signature="4133:4388" placeholder="SELECT n.nid..node..." />
-                <marker date="1404699027000" expanded="true" signature="4927:5018" placeholder="SELECT date ..." />
-                <marker date="1404699027000" expanded="true" signature="6657:6895" placeholder="SELECT n.tit..node..." />
-                <marker date="1404699027000" expanded="true" signature="7134:7381" placeholder="SELECT n.tit..field_data_field_associated_items..." />
+                <marker date="1404699198000" expanded="true" signature="3599:3859" placeholder="SELECT n.nid..node..." />
+                <marker date="1404699198000" expanded="true" signature="4133:4388" placeholder="SELECT n.nid..node..." />
+                <marker date="1404699198000" expanded="true" signature="4927:5018" placeholder="SELECT date ..." />
+                <marker date="1404699198000" expanded="true" signature="6657:6895" placeholder="SELECT n.tit..node..." />
+                <marker date="1404699198000" expanded="true" signature="7134:7381" placeholder="SELECT n.tit..field_data_field_associated_items..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="node.tpl.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/node.tpl.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="3" selection-start="4091" selection-end="4091" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="615">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -83,7 +74,7 @@
       <file leaf-file-name="node--item.tpl.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/node--item.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="675">
+            <state line="82" column="64" selection-start="4158" selection-end="4158" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="675">
               <folding />
             </state>
           </provider>
@@ -170,6 +161,7 @@
         <option value="$PROJECT_DIR$/sites/all/modules/ips_functions/ips_functions.module" />
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/node.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/node--item.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/modules/ips_orders/ips_orders.module" />
       </list>
     </option>
@@ -1033,15 +1025,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_forms/ips_forms.module">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="16" selection-start="2212" selection-end="2212" vertical-scroll-proportion="-19.5" vertical-offset="777" max-vertical-offset="2070">
-          <folding>
-            <marker date="1404621697000" expanded="true" signature="2849:3055" placeholder="SELECT n.nid..node..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/modules/node/node.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1317">
@@ -1056,22 +1039,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_forms/ips_forms.module">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="16" selection-start="2212" selection-end="2212" vertical-scroll-proportion="-19.5" vertical-offset="777" max-vertical-offset="2070">
+          <folding>
+            <marker date="1404621697000" expanded="true" signature="2849:3055" placeholder="SELECT n.nid..node..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/node--item.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1317">
+        <state line="82" column="64" selection-start="4158" selection-end="4158" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="675">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_orders/ips_orders.module">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="346" column="55" selection-start="8856" selection-end="8856" vertical-scroll-proportion="0.7679814" vertical-offset="4122" max-vertical-offset="5415">
+        <state line="353" column="15" selection-start="8987" selection-end="8987" vertical-scroll-proportion="0.8491879" vertical-offset="4122" max-vertical-offset="5415">
           <folding>
-            <marker date="1404699027000" expanded="true" signature="3599:3859" placeholder="SELECT n.nid..node..." />
-            <marker date="1404699027000" expanded="true" signature="4133:4388" placeholder="SELECT n.nid..node..." />
-            <marker date="1404699027000" expanded="true" signature="4927:5018" placeholder="SELECT date ..." />
-            <marker date="1404699027000" expanded="true" signature="6657:6895" placeholder="SELECT n.tit..node..." />
-            <marker date="1404699027000" expanded="true" signature="7134:7381" placeholder="SELECT n.tit..field_data_field_associated_items..." />
+            <marker date="1404699198000" expanded="true" signature="3599:3859" placeholder="SELECT n.nid..node..." />
+            <marker date="1404699198000" expanded="true" signature="4133:4388" placeholder="SELECT n.nid..node..." />
+            <marker date="1404699198000" expanded="true" signature="4927:5018" placeholder="SELECT date ..." />
+            <marker date="1404699198000" expanded="true" signature="6657:6895" placeholder="SELECT n.tit..node..." />
+            <marker date="1404699198000" expanded="true" signature="7134:7381" placeholder="SELECT n.tit..field_data_field_associated_items..." />
           </folding>
         </state>
       </provider>
