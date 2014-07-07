@@ -347,6 +347,7 @@ function ips_orders_node_view_form($form) {
 
   $form['node_id'] = array(
     '#type' => 'hidden',
+    '#default_value' => '',
   );
 
   $form['submit_button'] = array(
