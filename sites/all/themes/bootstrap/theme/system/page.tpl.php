@@ -78,7 +78,9 @@
 include_once('header.php');
 
 if (isset($_SESSION['order'])) {
-  echo orderSession::displayItems();
+  echo '<div class="col-sm-12">';
+  print_r(orderSession::displayItems());
+  echo '</div>';
 }
 
 
