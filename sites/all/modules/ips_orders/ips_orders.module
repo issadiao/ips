@@ -343,9 +343,30 @@ function ips_orders_extract_duplicate_items_from_order($items) {
   return $items;
 }
 
+// form to add items directly to order
+function ips_orders_node_view_form($form, $nid) {
 
+  $form['submit_button'] = array(
+    '#type' => 'submit',
+    '#value' => t('Add Item to Order'),
+  );
 
+  return $form;
 
+}
+
+// hook_node_view to add form to node pages
+function ips_orders_node_view($node, $view_mode) {
+
+  if ($node->type == "item") {
+
+    $node->content['add_item_form'] = drupal_render(drupal_get_form('ips_orders_node_view_form', $node->nid));
+
+  }
+
+  return $node;
+
+}
 
 
 
