@@ -343,7 +343,7 @@ function ips_orders_extract_duplicate_items_from_order($items) {
 }
 
 // form to add items directly to order
-function ips_orders_node_view_form($form_state, &$node) {
+function ips_orders_node_view_form($form, &$form_state, $node) {
 
   $form['node_id'] = array(
     '#type' => 'hidden',
