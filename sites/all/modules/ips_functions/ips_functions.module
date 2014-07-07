@@ -13,7 +13,6 @@ function ips_functions_get_user_data() {
 
   $data = array(
     "company" => '',
-    "company_id" => $user->field_company['und'][0]['target_id'],
     "logo" => array(),
     "name" => $user->name,
     "image" => array(),
@@ -29,10 +28,11 @@ function ips_functions_get_user_data() {
       ));
   }
 
-  // add company name and logo
+  // add company id, name and logo
   if (isset($user->field_company['und'][0]['target_id'])) {
     $company = node_load($user->field_company['und'][0]['target_id']);
     $data['company'] = $company->title;
+    $date['company_id'] = $company->nid;
 
     if (isset($company->field_image['und'][0]['uri'])) {
       $data['logo'] = theme_image_formatter(
