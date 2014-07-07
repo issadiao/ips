@@ -59,13 +59,13 @@
       <file leaf-file-name="ips_orders.module" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_orders/ips_orders.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="345" column="36" selection-start="8836" selection-end="8836" vertical-scroll-proportion="0.52436197" vertical-offset="4422" max-vertical-offset="5715">
+            <state line="345" column="49" selection-start="8849" selection-end="8849" vertical-scroll-proportion="0.52436197" vertical-offset="4422" max-vertical-offset="5715">
               <folding>
-                <marker date="1404702626000" expanded="true" signature="3599:3859" placeholder="SELECT n.nid..node..." />
-                <marker date="1404702626000" expanded="true" signature="4133:4388" placeholder="SELECT n.nid..node..." />
-                <marker date="1404702626000" expanded="true" signature="4927:5018" placeholder="SELECT date ..." />
-                <marker date="1404702626000" expanded="true" signature="6656:6894" placeholder="SELECT n.tit..node..." />
-                <marker date="1404702626000" expanded="true" signature="7133:7380" placeholder="SELECT n.tit..field_data_field_associated_items..." />
+                <marker date="1404702667000" expanded="true" signature="3599:3859" placeholder="SELECT n.nid..node..." />
+                <marker date="1404702667000" expanded="true" signature="4133:4388" placeholder="SELECT n.nid..node..." />
+                <marker date="1404702667000" expanded="true" signature="4927:5018" placeholder="SELECT date ..." />
+                <marker date="1404702667000" expanded="true" signature="6656:6894" placeholder="SELECT n.tit..node..." />
+                <marker date="1404702667000" expanded="true" signature="7133:7380" placeholder="SELECT n.tit..field_data_field_associated_items..." />
               </folding>
             </state>
           </provider>
@@ -1057,13 +1057,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_orders/ips_orders.module">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="345" column="36" selection-start="8836" selection-end="8836" vertical-scroll-proportion="0.52436197" vertical-offset="4422" max-vertical-offset="5715">
+        <state line="345" column="49" selection-start="8849" selection-end="8849" vertical-scroll-proportion="0.52436197" vertical-offset="4422" max-vertical-offset="5715">
           <folding>
-            <marker date="1404702626000" expanded="true" signature="3599:3859" placeholder="SELECT n.nid..node..." />
-            <marker date="1404702626000" expanded="true" signature="4133:4388" placeholder="SELECT n.nid..node..." />
-            <marker date="1404702626000" expanded="true" signature="4927:5018" placeholder="SELECT date ..." />
-            <marker date="1404702626000" expanded="true" signature="6656:6894" placeholder="SELECT n.tit..node..." />
-            <marker date="1404702626000" expanded="true" signature="7133:7380" placeholder="SELECT n.tit..field_data_field_associated_items..." />
+            <marker date="1404702667000" expanded="true" signature="3599:3859" placeholder="SELECT n.nid..node..." />
+            <marker date="1404702667000" expanded="true" signature="4133:4388" placeholder="SELECT n.nid..node..." />
+            <marker date="1404702667000" expanded="true" signature="4927:5018" placeholder="SELECT date ..." />
+            <marker date="1404702667000" expanded="true" signature="6656:6894" placeholder="SELECT n.tit..node..." />
+            <marker date="1404702667000" expanded="true" signature="7133:7380" placeholder="SELECT n.tit..field_data_field_associated_items..." />
           </folding>
         </state>
       </provider>
