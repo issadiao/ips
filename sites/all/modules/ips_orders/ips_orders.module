@@ -364,8 +364,6 @@ function ips_orders_node_view($node, $view_mode) {
 
   }
 
-  return $node;
-
 }
 
 
