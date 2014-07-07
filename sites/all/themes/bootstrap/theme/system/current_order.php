@@ -4,8 +4,8 @@
       <thead><tr><th>Item</th><th>Quantity</th></tr></thead>
       <tbody>
     <?php
-    foreach (orderSession::displayItems() as $item) {
-      echo "<tr><td>" . $item['title'] . "</td><td>" . $item['quantity'] . "</td></tr>";
+    foreach (orderSession::displayItems() as $key => $item) {
+      echo "<tr><td><a href='" . drupal_lookup_path("alias", "node/$key") . "'>" . $item['title'] . "</a></td><td>" . $item['quantity'] . "</td></tr>";
     }
     ?>
       </tbody>
