@@ -368,7 +368,7 @@ function ips_orders_node_view_form_submit($form, &$form_state) {
 function ips_orders_form_alter(&$form, &$form_state, $form_id) {
 
   if ($form_id == "ips_orders_node_view_form") {
-    $form['node_id']['#value'] = 2;
+    $form['node_id']['#default_value'] = 2;
   }
 
 }
