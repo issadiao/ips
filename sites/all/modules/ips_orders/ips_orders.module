@@ -211,7 +211,6 @@ function ips_orders_checklist_form($form) {
     '#size' => 60,
     '#maxlength' => 128,
     '#required' => FALSE,
-
   );
 
   $header = array(
@@ -346,6 +345,10 @@ function ips_orders_extract_duplicate_items_from_order($items) {
 // form to add items directly to order
 function ips_orders_node_view_form($form) {
 
+  $form['node_id'] = array(
+    '#type' => 'hidden',
+  );
+
   $form['submit_button'] = array(
     '#type' => 'submit',
     '#value' => t('Add Item to Order'),
@@ -355,6 +358,10 @@ function ips_orders_node_view_form($form) {
 
 }
 
+function ips_orders_node_view_form_submit($form, &$form_state) {
 
+  watchdog("FORM", "form = " . print_r($form_state['values']));
+
+}
 
 
