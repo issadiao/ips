@@ -98,9 +98,17 @@
       <div class="row">
 <?php
       $data = ips_functions_get_user_data();
-      echo '<div class="col-sm-5">' . $data['logo'] . '</div>';
+      echo '<div class="col-sm-5">';
+      if (!empty($data['logo'])) {
+        echo $data['logo'];
+      }
+      echo '</div>';
       echo '<div class="col-sm-5"><h3>Logged in as ' . $data['name'] . '</h3></div>';
-      echo '<div class="col-sm-2">' . $data['image'] . '</div>';
+      echo '<div class="col-sm-2">';
+      if (!empty($data['image'])) {
+        echo $data['image'];
+      }
+      echo '</div>';
 ?>
       </div>
 
