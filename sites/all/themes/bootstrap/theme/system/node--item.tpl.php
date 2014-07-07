@@ -78,6 +78,10 @@
  *
  * @ingroup themeable
  */
+
+
+echo drupal_render(drupal_get_form('ips_orders_node_view_form', $node->nid));
+
 ?>
 
 
