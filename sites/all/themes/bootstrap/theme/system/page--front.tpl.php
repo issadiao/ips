@@ -111,11 +111,20 @@
       <p>
         Some marketing language goes here explaining all the benefits of our systems. Maybe some bullet points? That would be cool.
       </p>
-      <ul>
-        <li>Cloud based inventory control</li>
-        <li>Track item locations inside your warehouse</li>
-        <li>Track items around the world</li>
-      </ul>
+      <div class="col-xs-12 col-md-6">
+        <ul>
+          <li>Real-time location tracking</li>
+          <li>Track item locations inside your warehouse</li>
+          <li>Track items around the world</li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <ul>
+          <li>Cloud based inventory control</li>
+          <li>Works on any web-enabled device</li>
+          <li>Your data is safe</li>
+        </ul>
+      </div>
     </div>
 
   </div>

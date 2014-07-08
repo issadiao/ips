@@ -23,13 +23,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="page--dashboard.tpl.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="page--dashboard.tpl.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="12" selection-start="4434" selection-end="4434" vertical-scroll-proportion="0.55684453" vertical-offset="0" max-vertical-offset="1293">
-              <folding>
-                <element signature="n#style#0;n#div#2;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state line="120" column="12" selection-start="4434" selection-end="4434" vertical-scroll-proportion="-30.0" vertical-offset="0" max-vertical-offset="1260">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page--front.tpl.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--front.tpl.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="124" column="31" selection-start="4735" selection-end="4735" vertical-scroll-proportion="0.51972157" vertical-offset="108" max-vertical-offset="1560">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -37,7 +44,7 @@
       <file leaf-file-name="ips_functions.module" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_functions/ips_functions.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="23" selection-start="247" selection-end="247" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="2205">
+            <state line="15" column="23" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="2280">
               <folding>
                 <marker date="1404696261000" expanded="true" signature="1377:1555" placeholder="SELECT n.nid..node..." />
                 <marker date="1404696261000" expanded="true" signature="1377:1709" placeholder="SELECT n.nid..node..." />
@@ -50,7 +57,7 @@
       <file leaf-file-name="ips_forms.module" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_forms/ips_forms.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="63" selection-start="387" selection-end="420" vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="2070">
+            <state line="25" column="63" selection-start="387" selection-end="420" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="2145">
               <folding>
                 <marker date="1404621697000" expanded="true" signature="2849:3055" placeholder="SELECT n.nid..node..." />
               </folding>
@@ -61,7 +68,7 @@
       <file leaf-file-name="page.tpl.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="39" selection-start="3501" selection-end="3501" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1080">
+            <state line="88" column="39" selection-start="3501" selection-end="3501" vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="2160">
               <folding>
                 <marker date="1404709792000" expanded="true" signature="3370:3606" placeholder="..." />
                 <marker date="1404709792000" expanded="true" signature="3460:3606" placeholder="..." />
@@ -77,7 +84,7 @@
       <file leaf-file-name="current_order.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/current_order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="105" selection-start="391" selection-end="391" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="285">
+            <state line="7" column="105" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="285">
               <folding />
             </state>
           </provider>
@@ -86,7 +93,7 @@
       <file leaf-file-name="ips_orders.module" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_orders/ips_orders.module">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="371" column="39" selection-start="9374" selection-end="9374" vertical-scroll-proportion="-48.875" vertical-offset="4317" max-vertical-offset="5640">
+            <state line="371" column="39" selection-start="9374" selection-end="9374" vertical-scroll-proportion="0.0" vertical-offset="5565" max-vertical-offset="5715">
               <folding>
                 <marker date="1404702918000" expanded="true" signature="3599:3859" placeholder="SELECT n.nid..node..." />
                 <marker date="1404702918000" expanded="true" signature="4133:4388" placeholder="SELECT n.nid..node..." />
@@ -101,7 +108,7 @@
       <file leaf-file-name="node--item.tpl.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/node--item.tpl.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="67" selection-start="4160" selection-end="4160" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="675">
+            <state line="81" column="67" selection-start="4160" selection-end="4160" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1845">
               <folding>
                 <marker date="1404702563000" expanded="true" signature="4288:5067" placeholder="..." />
                 <marker date="1404702563000" expanded="true" signature="4645:4689" placeholder="..." />
@@ -114,16 +121,7 @@
       <file leaf-file-name="ips_orders_session_data.inc" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_orders/ips_orders_session_data.inc">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="76" selection-start="310" selection-end="310" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="660">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="custom.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/css/custom.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="18" selection-start="2431" selection-end="2431" vertical-scroll-proportion="0.0" vertical-offset="783" max-vertical-offset="2100">
+            <state line="12" column="76" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="660">
               <folding />
             </state>
           </provider>
@@ -173,7 +171,6 @@
         <option value="$PROJECT_DIR$/sites/all/modules/ips_orders/ips_orders.info" />
         <option value="$PROJECT_DIR$/sites/all/modules/ips_tracker/ips_tracker.module" />
         <option value="$PROJECT_DIR$/sites/all/modules/ips_orders/js/ips_orders.js" />
-        <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--front.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/css/custom.css" />
         <option value="$PROJECT_DIR$/sites/all/modules/ips_permissions/ips_permissions.info" />
         <option value="$PROJECT_DIR$/sites/all/modules/ips_permissions/ips_permissions.module" />
@@ -186,6 +183,7 @@
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/current_order.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page.tpl.php" />
         <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php" />
+        <option value="$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--front.tpl.php" />
       </list>
     </option>
   </component>
@@ -221,7 +219,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -678,6 +675,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -744,7 +742,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="2560" height="1414" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -752,7 +750,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14882812" sideWeight="0.6704981" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24804688" sideWeight="0.6704981" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20234375" sideWeight="0.6704981" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -761,11 +759,11 @@
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936803" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936803" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -962,26 +960,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_tracker/ips_tracker.module">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="18" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="930">
-          <folding>
-            <marker date="1400379056000" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1400379056000" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="12" column="18" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="930" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/css/overrides.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--front.tpl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="66" selection-start="5168" selection-end="5168" vertical-scroll-proportion="0.0" vertical-offset="2130" max-vertical-offset="2505">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/css/custom.css">
@@ -1005,7 +989,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_functions/ips_functions.module">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="23" selection-start="247" selection-end="247" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="2205">
+        <state line="15" column="23" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="2280">
           <folding>
             <marker date="1404696261000" expanded="true" signature="1377:1555" placeholder="SELECT n.nid..node..." />
             <marker date="1404696261000" expanded="true" signature="1377:1709" placeholder="SELECT n.nid..node..." />
@@ -1016,21 +1000,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/node/node.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1317">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1317" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/node.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="3" selection-start="4091" selection-end="4091" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="615">
-          <folding />
-        </state>
+        <state line="79" column="3" selection-start="4091" selection-end="4091" vertical-scroll-proportion="-0.625" vertical-offset="0" max-vertical-offset="615" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_forms/ips_forms.module">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="63" selection-start="387" selection-end="420" vertical-scroll-proportion="-12.5" vertical-offset="0" max-vertical-offset="2070">
+        <state line="25" column="63" selection-start="387" selection-end="420" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="2145">
           <folding>
             <marker date="1404621697000" expanded="true" signature="2849:3055" placeholder="SELECT n.nid..node..." />
           </folding>
@@ -1039,7 +1019,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/node--item.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="67" selection-start="4160" selection-end="4160" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="675">
+        <state line="81" column="67" selection-start="4160" selection-end="4160" vertical-scroll-proportion="0.0" vertical-offset="1215" max-vertical-offset="1845">
           <folding>
             <marker date="1404702563000" expanded="true" signature="4288:5067" placeholder="..." />
             <marker date="1404702563000" expanded="true" signature="4645:4689" placeholder="..." />
@@ -1050,7 +1030,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_orders/ips_orders.module">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="371" column="39" selection-start="9374" selection-end="9374" vertical-scroll-proportion="-48.875" vertical-offset="4317" max-vertical-offset="5640">
+        <state line="371" column="39" selection-start="9374" selection-end="9374" vertical-scroll-proportion="0.0" vertical-offset="5565" max-vertical-offset="5715">
           <folding>
             <marker date="1404702918000" expanded="true" signature="3599:3859" placeholder="SELECT n.nid..node..." />
             <marker date="1404702918000" expanded="true" signature="4133:4388" placeholder="SELECT n.nid..node..." />
@@ -1063,21 +1043,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/modules/ips_orders/ips_orders_session_data.inc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="76" selection-start="310" selection-end="310" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="660">
+        <state line="12" column="76" selection-start="310" selection-end="310" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="660">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/current_order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="105" selection-start="391" selection-end="391" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="285">
+        <state line="7" column="105" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="285">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="39" selection-start="3501" selection-end="3501" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="1080">
+        <state line="88" column="39" selection-start="3501" selection-end="3501" vertical-scroll-proportion="0.0" vertical-offset="1320" max-vertical-offset="2160">
           <folding>
             <marker date="1404709792000" expanded="true" signature="3370:3606" placeholder="..." />
             <marker date="1404709792000" expanded="true" signature="3460:3606" placeholder="..." />
@@ -1091,10 +1071,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--dashboard.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="12" selection-start="4434" selection-end="4434" vertical-scroll-proportion="0.55684453" vertical-offset="0" max-vertical-offset="1293">
-          <folding>
-            <element signature="n#style#0;n#div#2;n#section#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="120" column="12" selection-start="4434" selection-end="4434" vertical-scroll-proportion="-30.0" vertical-offset="0" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sites/all/themes/bootstrap/theme/system/page--front.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="31" selection-start="4735" selection-end="4735" vertical-scroll-proportion="0.51972157" vertical-offset="108" max-vertical-offset="1560">
+          <folding />
         </state>
       </provider>
     </entry>
