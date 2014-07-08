@@ -42,6 +42,15 @@ tr.checked {
     position: relative;
 }
 
+.gradient h1 {
+    border-bottom: 20px;
+}
+
+.gradient ul {
+    margin-left: 0px;
+    margin-right: 10px;
+}
+
 .navbar-default {
     background-color: #36414E !important;
     border-color: #333 !important;
