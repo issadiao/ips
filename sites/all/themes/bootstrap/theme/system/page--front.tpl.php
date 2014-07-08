@@ -108,9 +108,6 @@
 
     <div class="container">
       <h1>Manage your inventory like never before</h1>
-      <p>
-        Some marketing language goes here explaining all the benefits of our systems. Maybe some bullet points? That would be cool.
-      </p>
       <div class="col-xs-12 col-md-6">
         <ul>
           <li>Real-time location tracking</li>
@@ -122,7 +119,7 @@
         <ul>
           <li>Cloud based inventory control</li>
           <li>Works on any web-enabled device</li>
-          <li>Your data is safe</li>
+          <li>Access your data from anywhere</li>
         </ul>
       </div>
     </div>
