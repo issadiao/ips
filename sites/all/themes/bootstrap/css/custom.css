@@ -77,6 +77,11 @@ tr.checked {
     letter-spacing: 2px;
 }
 
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    background-color: transparent;
+    color: #ffffff !important;
+}
+
 .nav > li {
     float: left;
 }
