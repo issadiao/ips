@@ -35,12 +35,11 @@
 </button>
 </div>
 
-<?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
   <div class="navbar-collapse collapse navbar-right">
     <nav role="navigation">
         <?php print render($page['navigation']); ?>
     </nav>
   </div>
-<?php endif; ?>
+
 </div>
 </header>
