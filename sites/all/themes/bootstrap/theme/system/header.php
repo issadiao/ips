@@ -35,7 +35,7 @@
 </button>
 </div>
 
-  <div class="navbar-collapse collapse navbar-right">
+  <div class="navbar-collapse collapse navbar-right menu nav navbar-nav">
     <nav role="navigation">
         <?php print render($page['navigation']); ?>
     </nav>
