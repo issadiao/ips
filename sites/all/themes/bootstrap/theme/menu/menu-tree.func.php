@@ -24,3 +24,11 @@ function bootstrap_menu_tree__primary(&$variables) {
 function bootstrap_menu_tree__secondary(&$variables) {
   return '<ul class="menu nav navbar-nav secondary">' . $variables['tree'] . '</ul>';
 }
+
+function bootstrap_menu_tree__logged_in(&$variables) {
+  return '<ul class="menu nav navbar-nav">' . $variables['tree'] . '</ul>';
+}
+
+function bootstrap_menu_tree__logged_out(&$variables) {
+  return '<ul class="menu nav navbar-nav">' . $variables['tree'] . '</ul>';
+}
