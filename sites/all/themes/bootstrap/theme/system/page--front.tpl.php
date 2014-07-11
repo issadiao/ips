@@ -155,9 +155,7 @@
 <div class="shadow2"></div>
 </div>
 
-<footer class="footer container">
-  <?php print render($page['footer']); ?>
-</footer>
+<?php include_once('footer.php'); ?>
 
   <div class="row">
     <div class="barcode"></div>
