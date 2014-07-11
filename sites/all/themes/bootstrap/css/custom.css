@@ -77,13 +77,16 @@ tr.checked {
     letter-spacing: 2px;
 }
 
-.navbar > li > a {
+.nav > li {
+    float: left;
+}
+
+.nav > li > a {
     color: #ffffff !important;
 }
 
-.navbar > li > a:hover {
+.nav > li > a:hover {
     color: #f00 !important;
-    background-color:#eeeeee;
 }
 
 .logo-small {
