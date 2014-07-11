@@ -41,6 +41,7 @@ function bootstrap_preprocess_page(&$variables) {
 
   // Logged in
   $variables['logged_in'] = FALSE;
+  watchdog("menu stuff", "variables = " . print_r($variables,TRUE));
   if ($variables['menu_logged_in']) {
     // Build links.
     $variables['menu_logged_in'] = menu_tree(variable_get('menu_logged_in_links_source', 'menu-logged-in'));
