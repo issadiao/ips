@@ -83,10 +83,11 @@ tr.checked {
 
 .nav > li > a {
     color: #ffffff !important;
+    line-height: 30px;
 }
 
 .nav > li > a:hover {
-    color: #f00 !important;
+    color: #36414e !important;
 }
 
 .logo-small {
