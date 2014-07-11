@@ -11,7 +11,11 @@
   <div class="container">
     <div class="navbar-header">
 
-      <?php // if ($logo):
+      <?php
+
+      // placeholder for logo
+
+      // if ($logo):
       if (1 == 2):
         ?>
         <a class="logo navbar-btn pull-left" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
@@ -34,13 +38,7 @@
 <?php if (!empty($primary_nav) || !empty($secondary_nav) || !empty($page['navigation'])): ?>
   <div class="navbar-collapse collapse navbar-right">
     <nav role="navigation">
-      <?php if (!empty($primary_nav)): ?>
-        <?php print render($primary_nav); ?>
-      <?php endif; ?>
-
-      <?php if (!empty($page['navigation'])): ?>
         <?php print render($page['navigation']); ?>
-      <?php endif; ?>
     </nav>
   </div>
 <?php endif; ?>
