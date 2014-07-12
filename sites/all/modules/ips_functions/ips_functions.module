@@ -59,8 +59,8 @@ function ips_functions_list_all_manufacturers_for_company() {
 
   if (isset($user->field_company['und'][0]['target_id'])) {
     $result = db_query("SELECT n.nid, n.title
-    FROM node n, field_data_field_manufacturer dfm, field_data_field_company dfc, node i
-    WHERE dfm.field_manufacturer_target_id = n.nid
+    FROM node n, field_data_field_item_manufacturer dfm, field_data_field_company dfc, node i
+    WHERE dfm.field_item_manufacturer_target_id = n.nid
     AND i.type = 'item'
     AND i.nid = dfc.entity_id
     AND i.nid = dfm.entity_id
@@ -90,8 +90,8 @@ function ips_functions_list_all_departments_for_company() {
 
   if (isset($user->field_company['und'][0]['target_id'])) {
     $result = db_query("SELECT n.nid, n.title
-    FROM node n, field_data_field_department dfm, field_data_field_company dfc, node i
-    WHERE dfm.field_department_target_id = n.nid
+    FROM node n, field_data_field_item_department dfm, field_data_field_company dfc, node i
+    WHERE dfm.field_item_department_target_id = n.nid
     AND i.type = 'item'
     AND i.nid = dfc.entity_id
     AND i.nid = dfm.entity_id
