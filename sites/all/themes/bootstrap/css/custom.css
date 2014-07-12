@@ -167,11 +167,14 @@ tr.checked {
     float: right;
     color:#ffffff;
     list-style-type: none;
+    margin: 0px;
+    padding: 0px;
 }
 
 .credits li {
     float: left;
-    margin-left: 20px;
+    margin-left: 25px;
+    line-height: 30px;
 }
 
 .footer-nav {
