@@ -2,9 +2,7 @@
 
   <nav role="navigation">
     <?php print render($page['navigation']); ?>
-    <ul>
-      <li>Los Angeles | Connecticut | Washington D.C.</li>
-    </ul>
+    <div class="credits">Los Angeles | Connecticut | Washington D.C.</div>
   </nav>
 
 </footer>

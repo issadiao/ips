@@ -162,3 +162,8 @@ tr.checked {
     margin: 50px auto;
     padding:0px;
 }
+
+.credits {
+    float: right;
+    color:#ffffff;
+}
