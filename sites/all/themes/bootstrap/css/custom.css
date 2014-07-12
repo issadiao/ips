@@ -175,6 +175,7 @@ tr.checked {
     float: left;
     margin-left: 25px;
     line-height: 30px;
+    padding:8px 0;
 }
 
 .footer-nav {
