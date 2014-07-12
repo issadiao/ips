@@ -172,8 +172,8 @@ tr.checked {
 }
 
 .credits li {
-    float: left;
-    margin-left: 25px;
+    float: right;
+    margin-right: 30px;
     line-height: 30px;
     padding:8px 0;
 }
