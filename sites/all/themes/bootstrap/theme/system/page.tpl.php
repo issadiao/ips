@@ -133,6 +133,5 @@ include_once('header.php');
 
   </div>
 </div>
-<footer class="footer container">
-  <?php print render($page['footer']); ?>
-</footer>
+
+<?php include_once('footer.php'); ?>
