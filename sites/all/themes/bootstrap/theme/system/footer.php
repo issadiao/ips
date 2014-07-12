@@ -6,6 +6,6 @@
     </nav>
   </div>
 
-  <div class="credits">Los Angeles | Connecticut | Washington D.C.</div>
+  <ul class="credits"><li>Los Angeles</li><li>Connecticut</li><li>Washington D.C.</li></ul>
 
 </footer>
