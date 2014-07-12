@@ -155,3 +155,10 @@ tr.checked {
 .desktop-spacer {
     height:40px;
 }
+
+.footer {
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    margin: 50px 0;
+    padding:0px;
+}
