@@ -53,7 +53,7 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
 
     $manufacturers[''] = "- Any -";
     $manufacturers = $manufacturers + ips_functions_list_all_manufacturers_for_company();
-    $form['field_manufacturer_target_id'] = array(
+    $form['field_item_manufacturer_target_id'] = array(
       '#type' => "select",
       '#title' => "",
       '#options' => $manufacturers,
@@ -61,7 +61,7 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
 
     $departments[''] = "- Any -";
     $departments = $departments + ips_functions_list_all_departments_for_company();
-    $form['field_department_target_id'] = array(
+    $form['field_item_department_target_id'] = array(
       '#type' => "select",
       '#title' => "",
       '#options' => $departments,
