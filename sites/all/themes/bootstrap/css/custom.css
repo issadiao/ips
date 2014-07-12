@@ -167,3 +167,7 @@ tr.checked {
     float: right;
     color:#ffffff;
 }
+
+.footer-nav {
+    float: left;
+}
