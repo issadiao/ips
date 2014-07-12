@@ -166,6 +166,12 @@ tr.checked {
 .credits {
     float: right;
     color:#ffffff;
+    list-style-type: none;
+}
+
+.credits li {
+    float: left;
+    margin-left: 20px;
 }
 
 .footer-nav {
