@@ -67,6 +67,14 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
       '#options' => $departments,
     );
 
+    $item_locations[''] = "- Any -";
+    $item_locations = $item_locations + ips_functions_list_all_item_locations_for_company();
+    $form['field_item_location_target_id'] = array(
+      '#type' => "select",
+      '#title' => "",
+      '#options' => $item_locations,
+    );
+
     $form['field_scanner_id_value']['#size'] = 15;
     $form['title']['#size'] = 15;
 
