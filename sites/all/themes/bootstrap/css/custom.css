@@ -4,6 +4,10 @@ body {
     background-color: #8098b5;
 }
 
+body a {
+    color: #36414e;
+}
+
 .wrapper {
     padding-left: 15px;
     padding-right: 15px;
