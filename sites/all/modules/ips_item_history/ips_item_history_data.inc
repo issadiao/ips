@@ -60,7 +60,7 @@ function ips_item_history_db_insert($message) {
       $company = $item->field_company['und'][0]['target_id'];
     }
   }
-  if (!$company) {
+  if (empty($company)) {
     $company = 0;
   }
 
