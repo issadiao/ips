@@ -158,7 +158,7 @@ function ips_functions_add_to_inventory($item) {
   $node->created = time();
   $node->changed = time();
   $node->uid = $user->uid;
-  if (isset($item['image'])) {
+  if (!empty($item['image'])) {
     $file = file_load($item['image']);
     $file->status = FILE_STATUS_PERMANENT;
     file_save($file);
