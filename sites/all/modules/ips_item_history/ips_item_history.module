@@ -40,7 +40,7 @@ function ips_item_history_node_update($node) {
     }
   }
 
-  $diff = array_diff_assoc($originals, $fields);
+  $diff = array_merge(array_diff_assoc($originals, $fields),array_diff_assoc($fields, $originals));
 
   watchdog("FIELDS", "fields = " . print_r($fields,TRUE));
   watchdog("ORIG", "orig = " . print_r($originals,TRUE));
