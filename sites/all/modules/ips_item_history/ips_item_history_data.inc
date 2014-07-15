@@ -65,14 +65,14 @@ function ips_item_history_db_insert($message) {
   $timestamp = $message['timestamp'];
   $data = $message['data'];
 
-  $query = "INSERT INTO item_history ('nid', 'uid', 'company')
-  VALUES (':nid', ':uid', ':cid')
+  $query = "INSERT INTO item_history ('nid')
+  VALUES (':nid')
   ";
   watchdog("LOG", "query = $query");
   $update = db_query($query, array (
     ":nid" => $nid,
-    ":uid" => $uid,
-    ":cid" => $cid,
+   // ":uid" => $uid,
+   // ":cid" => $cid,
    // ":status" => $status,
    // ":data" => $data,
    // ":timestamp" => $timestamp,
