@@ -65,7 +65,8 @@ function ips_item_history_db_insert($message) {
   $timestamp = $message['timestamp'];
   $data = $message['data'];
 
-  $query = "INSERT INTO item_history (NULL, '$nid', '$uid', '$cid', '$status', '$data', '$timestamp')
+  $query = "INSERT INTO item_history ('nid', 'uid', 'company', 'status', 'data')
+  VALUES ('$nid', '$uid', '$cid', '$status', '$data')
   ";
   watchdog("LOG", "query = $query");
   $update = db_query($query);
