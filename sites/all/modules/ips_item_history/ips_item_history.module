@@ -36,7 +36,7 @@ function ips_item_history_node_update($node) {
     }
   }
 
-  $diff = array_diff($fields, $originals);
+  $diff = array_diff_assoc($fields, $originals);
 
   watchdog("DIFF", "diff = " . print_r($diff,TRUE));
 
