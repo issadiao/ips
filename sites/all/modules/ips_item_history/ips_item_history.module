@@ -41,7 +41,7 @@ function ips_item_history_node_update($node) {
       $diff[$key] = $new;
     } else {
       if (isset($key['und'][0]['value'])) {
-        if (isset($originals[$key]['und'][0]['value']) && $originals[$key]['und'][0]['value'] != $key['und'][0]['value']) {
+        if ($originals[$key]['und'][0]['value'] != $key['und'][0]['value']) {
           $diff[$key] = $new;
         }
       }
