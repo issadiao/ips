@@ -11,6 +11,8 @@ include_once("ips_item_history_data.inc");
 // update item_history on node save
 function ips_item_history_node_update($node) {
 
+  watchdog("NODE", "node = ".print_r($node,TRUE));
+
   $fields = array();
   $originals = array();
   $diff = array();
