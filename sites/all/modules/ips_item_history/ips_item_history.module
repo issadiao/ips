@@ -25,13 +25,13 @@ function ips_item_history_node_update($node) {
   $diff = array();
 
   foreach ($node as $key => $field) {
-    if (substr(0,6) == "field_") {
+    if (substr($key, 0, 6) == "field_") {
       $fields[$key] = $field;
     }
   }
 
   foreach ($node->original as $key => $original) {
-    if (substr(0,6) == "field_") {
+    if (substr($key, 0, 6) == "field_") {
       $originals[$key] = $original;
     }
   }
