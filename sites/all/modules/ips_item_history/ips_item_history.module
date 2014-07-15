@@ -26,23 +26,21 @@ function ips_item_history_node_update($node) {
 
   foreach ($node as $key => $field) {
     if (substr($key, 0, 6) == "field_") {
-      $fields[$key] = $field;
+      if (isset($field['und'][0]['value'])) {
+      $fields[$key] = $field['und'][0]['value'];
+      }
     }
   }
 
   foreach ($node->original as $key => $original) {
     if (substr($key, 0, 6) == "field_") {
-      $originals[$key] = $original;
+      if (isset($original['und'][0]['value'])) {
+        $originals[$key] = $original['und'][0]['value'];
+      }
     }
   }
 
-  foreach ($fields as $key => $new) {
-    if (isset($new['und'][0]['value'])) {
-      $diff[$key] = $new['und'][0]['value'];
-    }
-  }
-
-  //$diff = array_diff_assoc($originals, $fields);
+  $diff = array_diff_assoc($originals, $fields);
 
  // watchdog("FIELDS", "fields = " . print_r($fields,TRUE));
   //watchdog("ORIG", "orig = " . print_r($originals,TRUE));
