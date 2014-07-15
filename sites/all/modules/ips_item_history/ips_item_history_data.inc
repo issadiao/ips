@@ -34,13 +34,13 @@ ips_item_history_db_insert($log_message);
  *
  *
  *  CREATE TABLE item_history(
-   id INT NOT NULL AUTO_INCREMENT,
-   nid INT NOT NULL,
-   uid INT NOT NULL,
-   company INT NOT NULL,
-   status VARCHAR(100) NOT NULL,
-   data VARCHAR(255) NOT NULL,
-   timestamp DATETIME NOT NULL,
+   id INT AUTO_INCREMENT,
+   nid INT,
+   uid INT,
+   company INT,
+   status VARCHAR(100),
+   data VARCHAR(255),
+   timestamp DATETIME,
    PRIMARY KEY ( id ),
    INDEX nid ( nid ),
    INDEX uid ( uid ),
@@ -65,8 +65,8 @@ function ips_item_history_db_insert($message) {
   $timestamp = $message['timestamp'];
   $data = $message['data'];
 
-  $query = "INSERT INTO item_history ('id', 'nid', 'uid', 'company', 'status', 'data', 'timestamp')
-  VALUES (NULL, ':nid', ':uid', ':cid', ':status', ':data', ':timestamp')
+  $query = "INSERT INTO item_history ('id', 'nid', 'uid', 'company', 'status', 'data')
+  VALUES (NULL, ':nid', ':uid', ':cid', ':status', ':data')
   ";
   watchdog("LOG", "query = $query");
   $update = db_query($query, array (
@@ -75,7 +75,7 @@ function ips_item_history_db_insert($message) {
     ":cid" => $cid,
     ":status" => $status,
     ":data" => $data,
-    ":timestamp" => $timestamp,
+   // ":timestamp" => $timestamp,
   ));
 
 
