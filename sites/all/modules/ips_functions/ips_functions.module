@@ -158,11 +158,13 @@ function ips_functions_add_to_inventory($item) {
   $node->created = time();
   $node->changed = time();
   $node->uid = $user->uid;
-  $file = file_load($item['image']);
-  $file->status = FILE_STATUS_PERMANENT;
-  file_save($file);
-  file_usage_add($file, 'node', 'node', $user->uid);
-  $node->field_image['und'][0]['fid'] = $item['image'];
+  if (isset($item['image'])) {
+    $file = file_load($item['image']);
+    $file->status = FILE_STATUS_PERMANENT;
+    file_save($file);
+    file_usage_add($file, 'node', 'node', $user->uid);
+    $node->field_image['und'][0]['fid'] = $item['image'];
+  }
 
   node_save($node);
 
