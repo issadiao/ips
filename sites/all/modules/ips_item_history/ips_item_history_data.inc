@@ -66,7 +66,7 @@ function ips_item_history_db_insert($message) {
   $data = $message['data'];
 
   $query = db_query("INSERT INTO item_history (`nid`, `uid`, `company`, `status`, `data`, `timestamp`)
-  VALUES ($nid, $uid, $cid, ':status', ':data', FROM_UNIXTIME($timestamp))
+  VALUES ($nid, $uid, $cid, :status, :data, FROM_UNIXTIME($timestamp))
   ", array (":status" => $status,":data" => $data,));
 
   drupal_set_message("Log Message Recorded");
