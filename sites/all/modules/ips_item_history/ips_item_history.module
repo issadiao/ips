@@ -42,8 +42,8 @@ function ips_item_history_node_update($node) {
 
   $diff = array_diff_assoc($originals, $fields);
 
- // watchdog("FIELDS", "fields = " . print_r($fields,TRUE));
-  //watchdog("ORIG", "orig = " . print_r($originals,TRUE));
+  watchdog("FIELDS", "fields = " . print_r($fields,TRUE));
+  watchdog("ORIG", "orig = " . print_r($originals,TRUE));
 
   watchdog("DIFF", "diff = " . print_r($diff,TRUE));
 }
