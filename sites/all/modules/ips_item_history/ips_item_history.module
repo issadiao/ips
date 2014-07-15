@@ -37,15 +37,11 @@ function ips_item_history_node_update($node) {
   }
 
   foreach ($fields as $key => $new) {
-    if (!isset($originals[$key])) {
-      $diff[$key] = $new;
-    } else {
       if (isset($new['und'][0]['value'])) {
-        if (isset($originals[$key]['und'][0]['value']) && $originals[$key]['und'][0]['value'] != $new['und'][0]['value']) {
+        if (isset($originals[$key][0]['und'][0]['value']) && $originals[$key][0]['und'][0]['value'] != $new['und'][0]['value']) {
           $diff[$key] = $new;
         }
       }
-    }
   }
 
   //$diff = array_diff_assoc($originals, $fields);
