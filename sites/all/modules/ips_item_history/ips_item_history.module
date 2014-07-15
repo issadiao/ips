@@ -37,7 +37,9 @@ function ips_item_history_node_update($node) {
   }
 
   foreach ($fields as $key => $new) {
-    watchdog("NEW", "new = " . $new['und'][0]['value']);
+    if (isset($new['und'][0]['value'])) {
+      watchdog("NEW", "new = " . $new['und'][0]['value']);
+    }
   }
 
   //$diff = array_diff_assoc($originals, $fields);
