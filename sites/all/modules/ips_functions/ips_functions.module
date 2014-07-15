@@ -153,7 +153,7 @@ function ips_functions_add_to_inventory($item) {
   $node->language = LANGUAGE_NONE;
   $node->title = $item['name'];
   $node->field_scanner_id['und'][0]['value'] = $item['scanner_id'];
-  $node->field_item_company['und'][0]['target_id'] = $user->field_company['und'][0]['target_id'];
+  $node->field_company['und'][0]['target_id'] = $user->field_company['und'][0]['target_id'];
   $node->created = time();
   $node->changed = time();
   $node->uid = $user->uid;
