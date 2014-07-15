@@ -8,3 +8,8 @@
 
 include_once("ips_item_history_data.inc");
 
+function ips_item_history_entity_postupdate($entity, $entity_type) {
+
+  watchdog("ENTITY", "type = $entity_type and entity = " . print_r($entity,TRUE));
+
+}
