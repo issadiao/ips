@@ -68,9 +68,10 @@ function ips_item_history_db_insert($message) {
   $query = "INSERT INTO item_history ('nid', 'uid', 'cid', 'status', 'timestamp', 'data')
   VALUES('$nid', '$uid', '$cid', '$status', '$timestamp', '$data')
   ";
+  watchdog("LOG", "query = $query");
   $update = db_query($query);
 
-  watchdog("LOG", "query = $query");
+
   drupal_set_message("Log Message Recorded");
   return TRUE;
 

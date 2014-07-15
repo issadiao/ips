@@ -154,12 +154,12 @@ function ips_functions_add_to_inventory($item) {
   $node->title = $item['name'];
   $node->field_scanner_id['und'][0]['value'] = $item['scanner_id'];
   $node->field_company['und'][0]['target_id'] = $user->field_company['und'][0]['target_id'];
-  if (!empty($item['associated_item'])) {
-    $node->field_associated_items['und'][0]['target_id'] = $item['associated_item'];
-  }
   $node->created = time();
   $node->changed = time();
   $node->uid = $user->uid;
+  if (!empty($item['associated_item'])) {
+    $node->field_associated_items['und'][0]['target_id'] = $item['associated_item'];
+  }
   if (!empty($item['image'])) {
     $file = file_load($item['image']);
     $file->status = FILE_STATUS_PERMANENT;
