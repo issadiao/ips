@@ -51,6 +51,10 @@ function ips_item_history_db_insert($message) {
 
   global $user;
   $user = user_load($user->uid);
+  $company = 0;
+  if (isset($user->field_company['und'][0]['target_id'])) {
+    $company = $user->field_company['und'][0]['target_id'];
+  }
 
   $columns = array("nid", "uid", "status", "data");
   foreach ($columns as $column) {
@@ -61,7 +65,7 @@ function ips_item_history_db_insert($message) {
   }
   $nid = $message['nid'];
   $uid = $message['uid'];
-  $cid = $user->field_company['und'][0]['target_id'];
+  $cid = $company;
   $status = $message['status'];
   $timestamp = time();
   $data = $message['data'];
