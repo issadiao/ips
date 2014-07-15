@@ -8,14 +8,6 @@
 
 include_once("ips_item_history_data.inc");
 
-/*
-function ips_item_history_entity_postupdate($entity, $entity_type) {
-
-  watchdog("ENTITY", "type = $entity_type and entity = " . print_r($entity,TRUE));
-
-}
-*/
-
 // update item_history on node save
 function ips_item_history_node_update($node) {
 
@@ -46,10 +38,13 @@ function ips_item_history_node_update($node) {
     }
   }
 
-  $diff = array_merge(array_diff_assoc($originals, $fields),array_diff_assoc($fields, $originals));
-
+  $diff = array_diff_assoc($originals, $fields);
   foreach ($diff as $key => $value) {
-    $message .= "$key was updated to $value<br>";
+    $message .= "$key was changed to $value<br>";
+  }
+  $diff = array_diff_assoc($fields, $originals);
+  foreach ($diff as $key => $value) {
+    $message .= "$key was changed from $value<br>";
   }
 
   $log_message = array(
