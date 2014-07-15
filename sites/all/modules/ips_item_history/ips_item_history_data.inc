@@ -50,6 +50,7 @@ ips_item_history_db_insert($log_message);
 function ips_item_history_db_insert($message) {
 
   global $user;
+  $user = user_load($user->uid);
 
   $columns = array("nid", "uid", "status", "data");
   foreach ($columns as $column) {
