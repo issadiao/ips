@@ -175,7 +175,7 @@ function ips_functions_add_to_inventory($item) {
     "uid" => $user->uid,
     "cid" => $user->field_company['und'][0]['target_id'],
     "status" => "Item Created",
-    "timestamp" => date("Y-m-d H:i:s", time()),
+    "timestamp" => time(),
     "data" => $node->title . " has been created.",
   );
   ips_item_history_db_insert($log_message);
