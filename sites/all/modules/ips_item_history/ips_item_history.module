@@ -18,6 +18,26 @@ function ips_item_history_entity_postupdate($entity, $entity_type) {
 
 function ips_item_history_node_update($node) {
 
-  watchdog("NODE", "node = " . print_r($node,TRUE));
+  //watchdog("NODE", "node = " . print_r($node,TRUE));
+
+  $fields = array();
+  $originals = array();
+  $diff = array();
+
+  foreach ($node as $key => $field) {
+    if (substr(0,6) == "field_") {
+      $fields[$key] = $field;
+    }
+  }
+
+  foreach ($node->original as $key => $original) {
+    if (substr(0,6) == "field_") {
+      $originals[$key] = $original;
+    }
+  }
+
+  $diff = array_merge(array_diff($fields, $originals), array_diff($originals, $fields));
+
+  watchdog("DIFF", "diff = " . print_r($diff));
 
 }
