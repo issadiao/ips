@@ -51,7 +51,7 @@ function ips_item_history_db_insert($message) {
 
   global $user;
 
-  $columns = array("nid", "uid", "cid", "status", "timestamp", "data");
+  $columns = array("nid", "uid", "status", "data");
   foreach ($columns as $column) {
     if ($message[$column] == FALSE) {
       drupal_set_message("logging failed. missing property $column");
