@@ -4,10 +4,8 @@
  $log_message = array(
  "nid" => "",
  "uid" => "",
- "cid" => "",
  "status" => "",
  "data" => "",
- "timestamp" => "",
  );
 ips_item_history_db_insert($log_message);
  *
@@ -51,6 +49,8 @@ ips_item_history_db_insert($log_message);
 
 function ips_item_history_db_insert($message) {
 
+  global $user;
+
   $columns = array("nid", "uid", "cid", "status", "timestamp", "data");
   foreach ($columns as $column) {
     if ($message[$column] == FALSE) {
@@ -60,9 +60,9 @@ function ips_item_history_db_insert($message) {
   }
   $nid = $message['nid'];
   $uid = $message['uid'];
-  $cid = $message['cid'];
+  $cid = $user->field_company['und'][0]['target_id'];
   $status = $message['status'];
-  $timestamp = $message['timestamp'];
+  $timestamp = time();
   $data = $message['data'];
 
   $query = db_query("INSERT INTO item_history (`nid`, `uid`, `company`, `status`, `data`, `timestamp`)
