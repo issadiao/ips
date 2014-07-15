@@ -36,11 +36,21 @@ function ips_item_history_node_update($node) {
     }
   }
 
-
+  foreach ($fields as $key => $new) {
+    if (!isset($originals[$key])) {
+      $diff[$key] = $new;
+    } else {
+      $field_diff = array_diff_assoc($originals[$key], $fields[$key]);
+      if (!empty($field_diff)) {
+        $diff[$key] = $field_diff;
+      }
+    }
+  }
 
   //$diff = array_diff_assoc($originals, $fields);
 
-  watchdog("FIELDS", "fields = " . print_r($fields,TRUE));
-  watchdog("ORIG", "orig = " . print_r($originals,TRUE));
+ // watchdog("FIELDS", "fields = " . print_r($fields,TRUE));
+  //watchdog("ORIG", "orig = " . print_r($originals,TRUE));
 
+  watchdog("DIFF", "diff = " . print_r($diff,TRUE));
 }
