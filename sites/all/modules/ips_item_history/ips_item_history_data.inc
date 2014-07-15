@@ -6,8 +6,8 @@
  "uid" => "",
  "cid" => "",
  "status" => "",
- "timestamp" => "",
  "data" => "",
+ "timestamp" => "",
  );
 ips_item_history_db_insert($log_message);
  *
@@ -65,8 +65,8 @@ function ips_item_history_db_insert($message) {
   $timestamp = $message['timestamp'];
   $data = $message['data'];
 
-  $query = "INSERT INTO item_history ('nid', 'uid', 'company', 'status', 'timestamp', 'data')
-  VALUES('$nid', '$uid', '$cid', '$status', '$timestamp', '$data')
+  $query = "INSERT INTO item_history ('nid', 'uid', 'company', 'status', 'data', 'timestamp')
+  VALUES('$nid', '$uid', '$cid', '$status', '$data', '$timestamp')
   ";
   watchdog("LOG", "query = $query");
   $update = db_query($query);
