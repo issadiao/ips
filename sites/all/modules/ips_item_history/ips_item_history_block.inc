@@ -15,7 +15,7 @@ function ips_item_history_block_view($delta = '') {
     case 'item_history':
 
       $block['subject'] = t('Item History');
-      $block['content'] = "This is a test - " . arg(1);
+      $block['content'] = ips_item_history_display(0, arg(1));
       break;
 
   }
