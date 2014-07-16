@@ -73,7 +73,8 @@ function ips_item_history_display($display = 100, $item = NULL) {
     $link = "admin/log/" . $record->nid;
 
     $output .= '<tr>';
-    $output .= '<td>' . $record->timestamp . '</td><td>' . $user_name . '</td><td>' . $record->nid . '</td><td>' . $title . '</td><td>' . $record->status . '</td><td>' . $record->data . '</td>';
+    $output .= '<td>' . $record->timestamp . '</td><td>' . $user_name . '</td><td>' . $record->nid . '</td><td><a href="'. $link . '">' . $title . '</a></td>';
+    $output .= '<td>' . $record->status . '</td><td>' . $record->data . '</td>';
     $output .= '</tr>';
   }
   
