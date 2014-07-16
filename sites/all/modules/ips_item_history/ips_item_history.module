@@ -71,11 +71,12 @@ function ips_item_history_display($display = 100, $item = NULL) {
     foreach ($node_title as $titled) {
       $title = $titled->title;
     }
-    $link = "/admin/log/" . $record->nid;
+    $log_link = "/admin/log/" . $record->nid;
+    $item_link = drupal_get_path('alias', "node/" . $record->nid);
 
     $output .= '<tr>';
-    $output .= '<td>' . $record->timestamp . '</td><td>' . $user_name . '</td><td>' . $record->nid . '</td><td><a href="'. $link . '">' . $title . '</a></td>';
-    $output .= '<td>' . $record->status . '</td><td>' . $record->data . '</td>';
+    $output .= '<td>' . $record->timestamp . '</td><td>' . $user_name . '</td><td><a href="'. $log_link . '">' . $record->nid . '</a></td>';
+    $output .= '<td><a href="'. $item_link . '">' . $title . '</a></td><td>' . $record->status . '</td><td>' . $record->data . '</td>';
     $output .= '</tr>';
   }
   
