@@ -123,11 +123,11 @@ function ips_item_history_node_update($node) {
 
   $diff = array_diff_assoc($originals, $fields);
   foreach ($diff as $key => $value) {
-    $message .= "$key was changed from $value<br>";
+    $message .= "$key was changed from " . ips_item_history_data_field_nid_to_title($key, $value) . "<br>";
   }
   $diff = array_diff_assoc($fields, $originals);
   foreach ($diff as $key => $value) {
-    $message .= "$key was changed to $value<br>";
+    $message .= "$key was changed to " . ips_item_history_data_field_nid_to_title($key, $value) . "<br>";
   }
 
   $log_message = array(
@@ -137,5 +137,38 @@ function ips_item_history_node_update($node) {
     "data" => $message,
   );
   ips_item_history_db_insert($log_message);
+
+}
+
+function ips_item_history_data_field_nid_to_title($key, $value) {
+
+  $table_name = "field_data_" . $key;
+  $column_name = $key . "_value";
+  $title = $value;
+
+  $table_check = mysql_query("SHOW COLUMNS FROM $table_name LIKE '$column_name'");
+  $exists = (mysql_num_rows($table_check)) ? TRUE : FALSE;
+
+  if (!$exists) {
+    $column_name = $key . "_target_id";
+    $table_check2 = mysql_query("SHOW COLUMNS FROM $table_name LIKE '$column_name'");
+    $exists = (mysql_num_rows($table_check2)) ? TRUE : FALSE;
+  }
+
+  if (!$exists) {
+    return $value;
+  }
+
+  $result = db_query("SELECT n.title
+  FROM node n, $table_name t
+  WHERE n.nid = t.entity_id
+  AND t.$column_name = $value
+  ");
+
+  foreach ($result as $record) {
+    $title = $record->title;
+  }
+
+  return $title;
 
 }
