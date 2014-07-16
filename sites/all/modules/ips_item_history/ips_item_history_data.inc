@@ -84,7 +84,7 @@ function ips_item_history_db_insert($message) {
     $query = db_query("INSERT INTO item_history (`nid`, `uid`, `company`, `status`, `data`, `timestamp`)
     VALUES ($nid, $uid, $cid, :status, :data, FROM_UNIXTIME($timestamp))
     ", array (":status" => $status,":data" => $data,));
-    drupal_set_message("Log Message Recorded");
+    
     return TRUE;
   }
 
@@ -130,6 +130,8 @@ function ips_item_history_node_update($node) {
     $message .= "$key was changed to " . ips_item_history_data_field_nid_to_title($key, $value) . "<br>";
   }
 
+  $message = str_replace("field_item_", "", $message);
+
   $log_message = array(
     "nid" => $node->nid,
     "uid" => $node->uid,
@@ -146,15 +148,14 @@ function ips_item_history_data_field_nid_to_title($key, $value) {
   $column_name = $key . "_value";
   $title = $value;
 
+  // make this work for "Value" or "target id"
   $table_check = db_query("SHOW COLUMNS FROM $table_name LIKE '$column_name'");
   $exists = ($table_check->rowCount()) ? TRUE : FALSE;
-
   if (!$exists) {
     $column_name = $key . "_target_id";
     $table_check2 = db_query("SHOW COLUMNS FROM $table_name LIKE '$column_name'");
     $exists = ($table_check2->rowCount()) ? TRUE : FALSE;
   }
-
   if (!$exists) {
     return $value;
   }
@@ -163,8 +164,6 @@ function ips_item_history_data_field_nid_to_title($key, $value) {
   FROM node n, $table_name t
   WHERE n.nid = t.$column_name
   AND t.$column_name = $value";
-
-  watchdog("QUERY", "query = $query");
 
   $result = db_query($query);
 
