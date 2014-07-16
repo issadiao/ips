@@ -40,11 +40,11 @@ function ips_item_history_node_update($node) {
 
   $diff = array_diff_assoc($originals, $fields);
   foreach ($diff as $key => $value) {
-    $message .= "$key was changed to $value<br>";
+    $message .= "$key was changed from $value<br>";
   }
   $diff = array_diff_assoc($fields, $originals);
   foreach ($diff as $key => $value) {
-    $message .= "$key was changed from $value<br>";
+    $message .= "$key was changed to $value<br>";
   }
 
   $log_message = array(
