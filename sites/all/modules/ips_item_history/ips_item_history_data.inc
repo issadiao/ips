@@ -161,7 +161,8 @@ function ips_item_history_data_field_nid_to_title($key, $value) {
 
   $query = "SELECT n.title
   FROM node n, $table_name t
-  WHERE n.nid = t.$column_name = $value";
+  WHERE n.nid = t.$column_name
+  AND t.$column_name = $value";
 
   watchdog("QUERY", "query = $query");
 
