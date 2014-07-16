@@ -70,7 +70,7 @@ function ips_item_history_display($display = 100, $item = NULL) {
     foreach ($node_title as $titled) {
       $title = $titled->title;
     }
-    $link = "admin/log/" . $record->nid;
+    $link = "/admin/log/" . $record->nid;
 
     $output .= '<tr>';
     $output .= '<td>' . $record->timestamp . '</td><td>' . $user_name . '</td><td>' . $record->nid . '</td><td><a href="'. $link . '">' . $title . '</a></td>';
