@@ -36,7 +36,7 @@ function ips_item_history_display($display = 100, $item = NULL) {
   
   $nid = '';
   if ($item) {
-    $nid = 'AND nid = $item';
+    $nid = "AND nid = $item";
   }
   
   global $user;
