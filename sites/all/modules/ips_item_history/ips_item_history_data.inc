@@ -89,3 +89,53 @@ function ips_item_history_db_insert($message) {
   }
 
 }
+
+
+// update item_history on node save
+function ips_item_history_node_update($node) {
+
+  $fields = array();
+  $originals = array();
+  $diff = array();
+  $message = '';
+
+  foreach ($node as $key => $field) {
+    if (substr($key, 0, 6) == "field_") {
+      if (isset($field['und'][0]['value'])) {
+        $fields[$key] = $field['und'][0]['value'];
+      }
+      if (isset($field['und'][0]['target_id'])) {
+        $fields[$key] = $field['und'][0]['target_id'];
+      }
+    }
+  }
+
+  foreach ($node->original as $key => $original) {
+    if (substr($key, 0, 6) == "field_") {
+      if (isset($original['und'][0]['value'])) {
+        $originals[$key] = $original['und'][0]['value'];
+      }
+      if (isset($original['und'][0]['target_id'])) {
+        $originals[$key] = $original['und'][0]['target_id'];
+      }
+    }
+  }
+
+  $diff = array_diff_assoc($originals, $fields);
+  foreach ($diff as $key => $value) {
+    $message .= "$key was changed from $value<br>";
+  }
+  $diff = array_diff_assoc($fields, $originals);
+  foreach ($diff as $key => $value) {
+    $message .= "$key was changed to $value<br>";
+  }
+
+  $log_message = array(
+    "nid" => $node->nid,
+    "uid" => $node->uid,
+    "status" => "Item Updated",
+    "data" => $message,
+  );
+  ips_item_history_db_insert($log_message);
+
+}
