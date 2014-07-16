@@ -3,7 +3,7 @@
 function ips_item_history_block_info() {
   $blocks['item_history'] = array(
     'info' => t('Item History'),
-    'cache' => DRUPAL_CACHE_PER_ROLE,
+    'cache' => DRUPAL_NO_CACHE,
   );
   return $blocks;
 }
