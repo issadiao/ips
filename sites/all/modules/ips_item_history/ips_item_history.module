@@ -34,7 +34,11 @@ function ips_item_history_display($display = 200, $item = NULL) {
   
   global $user;
   $user = user_load($user->uid);
-  $company = $user->field_company['und'][0]['target_id'];
+  if (isset($user->field_company['und'][0]['target_id'])) {
+    $company = 'AND company = ' . $user->field_company['und'][0]['target_id'];
+  } else {
+    $company = '';
+  }
 
   $output = '<table class="table table-striped table-bordered table-condensed">';
   $output .= '<thead>';
@@ -43,7 +47,8 @@ function ips_item_history_display($display = 200, $item = NULL) {
   
   $result = db_query("SELECT * 
   FROM item_history 
-  WHERE company = $company
+  WHERE id IS NOT NULL
+  $company
   $nid
   ORDER BY id DESC
   $limit
