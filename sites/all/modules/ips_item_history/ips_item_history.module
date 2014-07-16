@@ -72,7 +72,7 @@ function ips_item_history_display($display = 100, $item = NULL) {
       $title = $titled->title;
     }
     $log_link = "/admin/log/" . $record->nid;
-    $item_link = drupal_get_path('alias', "node/" . $record->nid);
+    $item_link = drupal_lookup_path('alias', "node/" . $record->nid);
 
     $output .= '<tr>';
     $output .= '<td>' . $record->timestamp . '</td><td>' . $user_name . '</td><td><a href="'. $log_link . '">' . $record->nid . '</a></td>';
