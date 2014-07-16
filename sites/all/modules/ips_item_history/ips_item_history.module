@@ -39,6 +39,7 @@ function ips_item_history_display($display = 200, $item = NULL) {
   $output = '<table class="table table-striped table-bordered table-condensed">';
   $output .= '<thead>';
   $output .= '<tr><th>Date</th><th>User</th><th>Item</th><th>Status</th><th>Message</th></tr>';
+  $output .= '</thead><tbody>';
   
   $result = db_query("SELECT * 
   FROM item_history 
@@ -53,7 +54,7 @@ function ips_item_history_display($display = 200, $item = NULL) {
     $output .= '</tr>';
   }
   
-  $output .= '</table>';
+  $output .= '</tbody></table>';
   
   return $output;
 
