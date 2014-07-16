@@ -37,7 +37,7 @@ ips_item_history_db_insert($log_message);
    uid INT NOT NULL,
    company INT NOT NULL,
    status VARCHAR(100) NOT NULL,
-   data VARCHAR(255) NOT NULL,
+   data TEXT NOT NULL,
    timestamp DATETIME NOT NULL,
    PRIMARY KEY ( id ),
    INDEX nid ( nid ),
