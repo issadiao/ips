@@ -11,18 +11,25 @@ include_once("ips_item_history_data.inc");
 function ips_item_history_menu() {
 
   $items['admin/log'] = array(
-    'title' => '200 Most Recent Log Entries',
+    'title' => '100 Most Recent Log Entries',
     'page callback' => 'ips_item_history_display',
+    'access callback' => 'user_is_logged_in',
+  );
+
+  $items['admin/log/%'] = array(
+    'title' => 'All Log Entries For This Item',
+    'page callback' => 'ips_item_history_display',
+    'page arguments' => array('0', 2),
     'access callback' => 'user_is_logged_in',
   );
 
   return $items;
 }
 
-// display 200 most recent log entries
-function ips_item_history_display($display = 200, $item = NULL) {
+// display 100 most recent log entries
+function ips_item_history_display($display = 100, $item = NULL) {
   
-  $limit = 'LIMIT 200';
+  $limit = 'LIMIT 100';
   if ($display == 0) {
     $limit = '';
   }
