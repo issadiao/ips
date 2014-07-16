@@ -49,7 +49,7 @@ function ips_item_history_display($display = 100, $item = NULL) {
 
   $output = '<table class="table table-striped table-bordered table-condensed">';
   $output .= '<thead>';
-  $output .= '<tr><th>Date</th><th>User</th><th>Item</th><th>Status</th><th>Message</th></tr>';
+  $output .= '<tr><th>Date</th><th>User</th><th>Item ID</th><th>Title</th><th>Status</th><th>Message</th></tr>';
   $output .= '</thead><tbody>';
   
   $result = db_query("SELECT * 
@@ -66,9 +66,14 @@ function ips_item_history_display($display = 100, $item = NULL) {
     foreach ($username as $name) {
       $user_name = $name->name;
     }
+    $node_title = db_query("SELECT title FROM node WHERE nid = :nid", array(":nid" => $record->nid));
+    foreach ($node_title as $titled) {
+      $title = $titled->title;
+    }
+    $link = "admin/log/" . $record->nid;
 
     $output .= '<tr>';
-    $output .= '<td>' . $record->timestamp . '</td><td>' . $user_name . '</td><td>' . $record->nid . '</td><td>' . $record->status . '</td><td>' . $record->data . '</td>';
+    $output .= '<td>' . $record->timestamp . '</td><td>' . $user_name . '</td><td>' . $record->nid . '</td><td>' . $title . '</td><td>' . $record->status . '</td><td>' . $record->data . '</td>';
     $output .= '</tr>';
   }
   
