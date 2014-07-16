@@ -49,8 +49,14 @@ function ips_item_history_display($display = 200, $item = NULL) {
   $limit
   ");
   foreach ($result as $record) {
+
+    $username = db_query("SELECT name FROM users WHERE uid = :uid", array(":uid" => $record->uid));
+    foreach ($username as $name) {
+      $user_name = $name->name;
+    }
+
     $output .= '<tr>';
-    $output .= '<td>' . $record->timestamp . '</td><td>' . $record->uid . '</td><td>' . $record->nid . '</td><td>' . $record->status . '</td><td>' . $record->data . '</td>';
+    $output .= '<td>' . $record->timestamp . '</td><td>' . $user_name . '</td><td>' . $record->nid . '</td><td>' . $record->status . '</td><td>' . $record->data . '</td>';
     $output .= '</tr>';
   }
   
