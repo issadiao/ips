@@ -147,12 +147,12 @@ function ips_item_history_data_field_nid_to_title($key, $value) {
   $title = $value;
 
   $table_check = db_query("SHOW COLUMNS FROM $table_name LIKE '$column_name'");
-  $exists = (mysql_num_rows($table_check)) ? TRUE : FALSE;
+  $exists = (mysql_num_rows($table_check->fetchAssoc())) ? TRUE : FALSE;
 
   if (!$exists) {
     $column_name = $key . "_target_id";
     $table_check2 = db_query("SHOW COLUMNS FROM $table_name LIKE '$column_name'");
-    $exists = (mysql_num_rows($table_check2)) ? TRUE : FALSE;
+    $exists = (mysql_num_rows($table_check2->fetchAssoc())) ? TRUE : FALSE;
   }
 
   if (!$exists) {
