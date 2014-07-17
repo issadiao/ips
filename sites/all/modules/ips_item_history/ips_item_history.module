@@ -37,13 +37,13 @@ function ips_item_history_display($display = 100, $item = NULL) {
   
   $nid = '';
   if ($item) {
-    $nid = "AND nid = $item";
+    $nid = "AND n.nid = $item";
   }
   
   global $user;
   $user = user_load($user->uid);
   if (isset($user->field_parent_company['und'][0]['target_id'])) {
-    $company = 'AND company = ' . $user->field_parent_company['und'][0]['target_id'];
+    $company = 'AND h.company = ' . $user->field_parent_company['und'][0]['target_id'];
   } else {
     $company = '';
   }
