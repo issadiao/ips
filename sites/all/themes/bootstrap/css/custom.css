@@ -198,3 +198,7 @@ tr.checked {
     margin: 0px 10px 10px 0px;
     border: 1px solid #e5e5e5;
 }
+
+.node-repair .field {
+    margin: 5px 0;
+}
