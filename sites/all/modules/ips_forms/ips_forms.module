@@ -25,8 +25,8 @@ function ips_forms_node_update($node) {
 
   watchdog("NODE X", "node = " . print_r($node,TRUE));
   global $user;
-  if ($user->uid != 0 && !isset($node->field_company['und'][0]['target_id'])) {
-    $node->field_company['und'][0]['target_id'] = 19;
+  if ($user->uid != 0 && !isset($node->field_parent_company['und'][0]['target_id'])) {
+    $node->field_parent_company['und'][0]['target_id'] = 19;
   }
 
 }
@@ -137,9 +137,9 @@ function ips_forms_autocomplete_items($string) {
     $matches = array();
 
     $return = db_query("SELECT n.nid, n.title
-    FROM node n, field_data_field_company fc
+    FROM node n, field_data_field_parent_company fc
     WHERE n.type = 'item'
-    AND fc.field_company_target_id = $company_id
+    AND fc.field_parent_company_target_id = $company_id
     AND n.nid = fc.entity_id
     AND n.title LIKE :text LIMIT 15
     ",array(':text' => "%".db_like($string)."%"));

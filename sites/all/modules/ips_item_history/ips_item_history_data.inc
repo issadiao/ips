@@ -51,13 +51,13 @@ function ips_item_history_db_insert($message) {
 
   global $user;
   $user = user_load($user->uid);
-  if (isset($user->field_company['und'][0]['target_id'])) {
-    $company = $user->field_company['und'][0]['target_id'];
+  if (isset($user->field_parent_company['und'][0]['target_id'])) {
+    $company = $user->field_parent_company['und'][0]['target_id'];
   } else {
     // user company failed, get company from item
     $item = node_load($message['nid']);
-    if (isset ($item->field_company['und'][0]['target_id'])) {
-      $company = $item->field_company['und'][0]['target_id'];
+    if (isset ($item->field_parent_company['und'][0]['target_id'])) {
+      $company = $item->field_parent_company['und'][0]['target_id'];
     }
   }
   if (empty($company)) {

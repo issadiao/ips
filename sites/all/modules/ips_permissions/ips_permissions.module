@@ -8,8 +8,8 @@
 
 function ips_permissions_node_access($node, $op, $account) {
 
-  if (isset($node->type) && ($node->type == "item" || $node->type == "grouped_items") && isset($node->field_company['und'][0]['target_id'])) {
-    $match = ips_permissions_item_matches_user_company($account->uid, $node->field_company['und'][0]['target_id']);
+  if (isset($node->type) && ($node->type == "item" || $node->type == "grouped_items") && isset($node->field_parent_company['und'][0]['target_id'])) {
+    $match = ips_permissions_item_matches_user_company($account->uid, $node->field_parent_company['und'][0]['target_id']);
     if (!$match) {
       return NODE_ACCESS_DENY;
     }
@@ -21,7 +21,7 @@ function ips_permissions_node_access($node, $op, $account) {
 function ips_permissions_item_matches_user_company($uid, $company_id) {
 
   $user = user_load($uid);
-  $user_company = $user->field_company['und'][0]['target_id'];
+  $user_company = $user->field_parent_company['und'][0]['target_id'];
   if ($user_company == $company_id) {
     return TRUE;
   }

@@ -30,8 +30,8 @@ function ips_functions_get_user_data() {
   }
 
   // add company id, name and logo
-  if (isset($user->field_company['und'][0]['target_id'])) {
-    $company = node_load($user->field_company['und'][0]['target_id']);
+  if (isset($user->field_parent_company['und'][0]['target_id'])) {
+    $company = node_load($user->field_parent_company['und'][0]['target_id']);
     $data['company'] = $company->title;
     $date['company_id'] = $company->nid;
 
@@ -55,16 +55,16 @@ function ips_functions_list_all_manufacturers_for_company() {
 
   global $user;
   $user = user_load($user->uid);
-  $company = $user->field_company['und'][0]['target_id'];
+  $company = $user->field_parent_company['und'][0]['target_id'];
 
-  if (isset($user->field_company['und'][0]['target_id'])) {
+  if (isset($user->field_parent_company['und'][0]['target_id'])) {
     $result = db_query("SELECT n.nid, n.title
-    FROM node n, field_data_field_item_manufacturer dfm, field_data_field_company dfc, node i
+    FROM node n, field_data_field_item_manufacturer dfm, field_data_field_parent_company dfc, node i
     WHERE dfm.field_item_manufacturer_target_id = n.nid
     AND i.type = 'item'
     AND i.nid = dfc.entity_id
     AND i.nid = dfm.entity_id
-    AND dfc.field_company_target_id = $company
+    AND dfc.field_parent_company_target_id = $company
     GROUP BY n.nid
     ORDER BY n.title
     ");
@@ -86,16 +86,16 @@ function ips_functions_list_all_departments_for_company() {
 
   global $user;
   $user = user_load($user->uid);
-  $company = $user->field_company['und'][0]['target_id'];
+  $company = $user->field_parent_company['und'][0]['target_id'];
 
-  if (isset($user->field_company['und'][0]['target_id'])) {
+  if (isset($user->field_parent_company['und'][0]['target_id'])) {
     $result = db_query("SELECT n.nid, n.title
-    FROM node n, field_data_field_item_department dfm, field_data_field_company dfc, node i
+    FROM node n, field_data_field_item_department dfm, field_data_field_parent_company dfc, node i
     WHERE dfm.field_item_department_target_id = n.nid
     AND i.type = 'item'
     AND i.nid = dfc.entity_id
     AND i.nid = dfm.entity_id
-    AND dfc.field_company_target_id = $company
+    AND dfc.field_parent_company_target_id = $company
     GROUP BY n.nid
     ORDER BY n.title
     ");
@@ -117,16 +117,16 @@ function ips_functions_list_all_item_locations_for_company() {
 
   global $user;
   $user = user_load($user->uid);
-  $company = $user->field_company['und'][0]['target_id'];
+  $company = $user->field_parent_company['und'][0]['target_id'];
 
-  if (isset($user->field_company['und'][0]['target_id'])) {
+  if (isset($user->field_parent_company['und'][0]['target_id'])) {
     $result = db_query("SELECT n.nid, n.title
-    FROM node n, field_data_field_item_location dfm, field_data_field_company dfc, node i
+    FROM node n, field_data_field_item_location dfm, field_data_field_parent_company dfc, node i
     WHERE dfm.field_item_location_target_id = n.nid
     AND i.type = 'item'
     AND i.nid = dfc.entity_id
     AND i.nid = dfm.entity_id
-    AND dfc.field_company_target_id = $company
+    AND dfc.field_parent_company_target_id = $company
     GROUP BY n.nid
     ORDER BY n.title
     ");
@@ -153,7 +153,7 @@ function ips_functions_add_to_inventory($item) {
   $node->language = LANGUAGE_NONE;
   $node->title = $item['name'];
   $node->field_scanner_id['und'][0]['value'] = $item['scanner_id'];
-  $node->field_company['und'][0]['target_id'] = $user->field_company['und'][0]['target_id'];
+  $node->field_parent_company['und'][0]['target_id'] = $user->field_parent_company['und'][0]['target_id'];
   $node->created = time();
   $node->changed = time();
   $node->uid = $user->uid;

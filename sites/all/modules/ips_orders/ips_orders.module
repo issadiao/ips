@@ -127,11 +127,11 @@ function ips_orders_return_order_ids($mode, $company) {
   $order['title'] = $title;
 
   $result = db_query("SELECT n.nid, n.title
-  FROM node n, field_data_field_order_status fos, field_data_field_company fc
+  FROM node n, field_data_field_order_status fos, field_data_field_parent_company fc
   WHERE n.type = 'order'
   AND n.nid = fos.entity_id
   AND fc.entity_id = n.nid
-  AND fc.field_company_target_id = :id
+  AND fc.field_parent_company_target_id = :id
   AND fos.field_order_status_value $value
   ", array(":id" => $company));
   foreach ($result as $record) {
