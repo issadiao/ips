@@ -1,5 +1,6 @@
 <div class="row">
   <div class="container">
+
 <?php
 
 $add_item_form = drupal_get_form('ips_orders_node_view_form', $node);
@@ -9,10 +10,14 @@ if ($node->field_item_needs_repair['und'][0]['value'] == "no") {
   $repair_item_form = drupal_get_form('ips_repairs_node_view_form', $node);
   echo drupal_render($repair_item_form);
 } else {
-  echo "this item is in need of repair.";
-}
-
 ?>
+
+  <div class="repair row col-xs-12">
+  This item is in need of repair. See details here: <?php echo ips_repairs_item_repair_link($node->nid); ?>
+  </div>
+
+<?php } ?>
+
   </div>
 </div>
 

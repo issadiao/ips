@@ -202,3 +202,9 @@ tr.checked {
 .node-repair .field {
     margin: 25px 0;
 }
+
+.repair {
+    background-color: #ffccff;
+    color: #f00;
+    border:1px solid #f00;
+}

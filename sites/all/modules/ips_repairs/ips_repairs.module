@@ -117,3 +117,9 @@ function ips_repairs_completed_form_submit($form, &$form_state) {
   $form_state['redirect'] = drupal_lookup_path("alias", "node/" . $updated_item->nid);
 
 }
+
+function ips_repairs_item_repair_link($nid) {
+
+  return "link goes here";
+
+}
