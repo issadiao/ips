@@ -79,11 +79,15 @@
  * @ingroup themeable
  */
 
+echo '<div class="col-xs-12 col-sm-6 pull-left">';
 $add_item_form = drupal_get_form('ips_orders_node_view_form', $node);
 echo drupal_render($add_item_form);
+echo '</div>';
 
+echo '<div class="col-xs-12 col-sm-6 pull-right">';
 $repair_item_form = drupal_get_form('ips_repairs_node_view_form', $node);
 echo drupal_render($repair_item_form);
+echo '</div>';
 
 ?>
 
