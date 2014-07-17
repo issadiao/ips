@@ -51,14 +51,19 @@ function ips_repairs_node_view_form_submit($form, &$form_state) {
   node_save($node);
 
   // update item node repair status to yes
+  $updated_item = node_load($item);
+  $updated_item->field_needs_repair['und'][0]['value'] = "yes";
+  node_save($updated_item);
 
   $log_message = array(
     "nid" => $item,
     "uid" => $user->uid,
     "status" => "Needs Repair",
-    "data" => $title . " needs repair. Repair ticket <a href='/node/" . $node->nid . "'>" . $node->nid . "</a> has been created.",
+    "data" => $title . " needs repair. <a href='/node/" . $node->nid . "'>Repair ticket " . $node->nid . "</a> has been created.",
   );
   ips_item_history_db_insert($log_message);
+
+  $form_state['redirect'] = drupal_lookup_path("alias", "node/" . $node->nid);
 
 }
 
