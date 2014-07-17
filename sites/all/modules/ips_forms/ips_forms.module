@@ -23,6 +23,8 @@ function ips_forms_menu() {
 // FORM ALTER
 function ips_forms_form_alter(&$form, &$form_state, $form_id) {
 
+  global $user;
+
   if ($form_id == 'webform_client_form_10') {
 
     //$form['#prefix'] = '<div class="form-group">';
@@ -76,6 +78,10 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
     $form['field_scanner_id_value']['#size'] = 15;
     $form['title']['#size'] = 15;
 
+  }
+
+  if ($form_id == "item_node_form" && $user->uid != 1) {
+    $form['field_parent_company']['#access'] = FALSE;
   }
 
 }
