@@ -98,6 +98,7 @@ function ips_repairs_completed_form_submit($form, &$form_state) {
 
   $node = node_load($repair);
   $item = $node->field_repair_item['und'][0]['target_id'];
+  $node->field_repair_complete['und'][0]['value'] = "no";
   node_save($node);
 
   // update item node repair status to no
