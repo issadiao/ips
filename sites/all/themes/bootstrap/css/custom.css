@@ -193,3 +193,8 @@ tr.checked {
 #ips-orders-node-view-form {
     margin: 0 0 10px 0;
 }
+
+.field-name-field-item-image img {
+    margin: 0px 10px 10px;
+    border: 1px solid #e5e5e5;
+}
