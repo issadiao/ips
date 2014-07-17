@@ -1,13 +1,19 @@
 <div class="row">
+  <div class="container">
 <?php
 
 $add_item_form = drupal_get_form('ips_orders_node_view_form', $node);
 echo drupal_render($add_item_form);
 
-$repair_item_form = drupal_get_form('ips_repairs_node_view_form', $node);
-echo drupal_render($repair_item_form);
+if ($node->field_item_needs_repair['und'][0]['value'] == "no") {
+  $repair_item_form = drupal_get_form('ips_repairs_node_view_form', $node);
+  echo drupal_render($repair_item_form);
+} else {
+  echo "this item is in need of repair.";
+}
 
 ?>
+  </div>
 </div>
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
