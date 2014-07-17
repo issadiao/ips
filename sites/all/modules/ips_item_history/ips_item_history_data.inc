@@ -90,9 +90,11 @@ function ips_item_history_db_insert($message) {
 
 }
 
-/*
+
 // update item_history on node save
 function ips_item_history_node_update($node) {
+
+  watchdog("NODE", "node = " . print_r($node,TRUE));
 
   $fields = array();
   $originals = array();
@@ -178,4 +180,3 @@ function ips_item_history_data_field_nid_to_title($key, $value) {
   return $title;
 
 }
-*/
