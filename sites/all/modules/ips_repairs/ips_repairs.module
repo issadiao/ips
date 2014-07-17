@@ -132,7 +132,7 @@ function ips_repairs_item_repair_link($nid) {
   ", array(":nid" => $nid));
   foreach ($result as $record) {
     $path = drupal_lookup_path("alias", "node/" . $record->entity_id);
-    $link = "<a href='$path'>" . $record->title . "</a>";
+    $link = "<a href='/$path'>" . $record->title . "</a>";
   }
   return $link;
 
