@@ -23,6 +23,7 @@ function ips_forms_menu() {
 // hack to prevent "company" field from erasing
 function ips_forms_node_update($node) {
 
+  watchdog("NODE X", "node = " . print_r($node,TRUE));
   global $user;
   if ($user->uid != 0 && !isset($node->field_company['und'][0]['target_id'])) {
     $node->field_company['und'][0]['target_id'] = 19;
