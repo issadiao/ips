@@ -18,10 +18,11 @@ if ($node->field_item_needs_repair['und'][0]['value'] == "no") {
   echo '</div>';
 } else {
 ?>
-    <div class="repair container col-xs-12">
+  <div class="container">
+    <div class="repair col-xs-12">
       This item is in need of repair. See details here: <?php echo ips_repairs_item_repair_link($node->nid); ?>
     </div>
-
+  </div>
 <?php } ?>
 
 </div>
