@@ -25,7 +25,7 @@ function ips_forms_node_update($node) {
 
   global $user;
   if ($user->uid != 0 && !isset($node->field_company['und'][0]['target_id'])) {
-    $node->field_company['und'][0]['target_id'] = 2;
+    $node->field_company['und'][0]['target_id'] = 19;
   }
 
 }
