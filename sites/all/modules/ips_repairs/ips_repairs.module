@@ -1,0 +1,64 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: issa.diao
+ * Date: 3/5/2014
+ * Time: 10:08 AM
+ */
+
+// form to add repair request to item
+function ips_repairs_node_view_form($form, &$form_state, $node) {
+
+  $form['node_id'] = array(
+    '#type' => 'hidden',
+    '#default_value' => $node->nid,
+  );
+
+  $form['title'] = array(
+    '#type' => 'hidden',
+    '#default_value' => $node->title,
+  );
+
+  $form['submit_button'] = array(
+    '#type' => 'submit',
+    '#value' => t('Mark For Repair'),
+  );
+
+  return $form;
+
+}
+
+function ips_repairs_node_view_form_submit($form, &$form_state) {
+
+  $item = $form_state['values']['node_id'];
+  $title = $form_state['values']['title'];
+
+  // create repair node with values
+  global $user;
+  $user = user_load($user->uid);
+
+  $node = new stdClass();
+  $node->type = 'repair';
+  node_object_prepare($node);
+  $node->language = LANGUAGE_NONE;
+  $node->title = "REPAIR - $title";
+  $node->field_repair_item['und'][0]['target_id'] = $item;
+  $node->field_parent_company['und'][0]['target_id'] = $user->field_parent_company['und'][0]['target_id'];
+  $node->created = time();
+  $node->changed = time();
+  $node->uid = $user->uid;
+
+  node_save($node);
+
+  // update item node repair status to yes
+
+  $log_message = array(
+    "nid" => $item,
+    "uid" => $user->uid,
+    "status" => "Needs Repair",
+    "data" => $title . " needs repair. Repair ticket <a href='/node/" . $node->nid . "'>" . $node->nid . "</a> has been created.",
+  );
+  ips_item_history_db_insert($log_message);
+
+}
+

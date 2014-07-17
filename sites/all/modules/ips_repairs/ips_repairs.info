@@ -1,0 +1,5 @@
+name = IPS Repairs
+description = Tracks repair orders
+package = aaa_ips
+version = 7.0
+core = 7.x

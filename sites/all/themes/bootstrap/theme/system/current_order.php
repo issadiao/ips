@@ -5,7 +5,7 @@
       <tbody>
     <?php
     foreach (orderSession::displayItems() as $key => $item) {
-      echo "<tr><td><a href='" . drupal_lookup_path("alias", "node/$key") . "'>" . $item['title'] . "</a></td><td>" . $item['quantity'] . "</td></tr>";
+      echo "<tr><td><a href='/" . drupal_lookup_path("alias", "node/$key") . "'>" . $item['title'] . "</a></td><td>" . $item['quantity'] . "</td></tr>";
     }
     ?>
       </tbody>
