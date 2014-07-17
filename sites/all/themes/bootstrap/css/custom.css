@@ -95,6 +95,10 @@ tr.checked {
     line-height: 30px;
 }
 
+.nav-tabs > li > a {
+    color: #36414e !important;
+}
+
 .nav > li > a:hover {
     color: #36414e !important;
 }
