@@ -20,7 +20,14 @@ function ips_forms_menu() {
 
 }
 
+// hack to prevent "company" field from erasing
+function ips_forms_node_update($node) {
 
+  if (!isset($node->field_company['und'][0]['target_id'])) {
+    $node->field_company['und'][0]['target_id'] = 2;
+  }
+
+}
 
 // FORM ALTER
 function ips_forms_form_alter(&$form, &$form_state, $form_id) {
