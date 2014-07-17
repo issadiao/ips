@@ -67,3 +67,24 @@ function ips_repairs_node_view_form_submit($form, &$form_state) {
 
 }
 
+// form to close a repair
+function ips_repairs_completed_form($form, &$form_state, $node) {
+
+  $form['node_id'] = array(
+    '#type' => 'hidden',
+    '#default_value' => $node->nid,
+  );
+
+  $form['title'] = array(
+    '#type' => 'hidden',
+    '#default_value' => $node->title,
+  );
+
+  $form['submit_button'] = array(
+    '#type' => 'submit',
+    '#value' => t('Repair Complete'),
+  );
+
+  return $form;
+
+}
