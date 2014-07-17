@@ -5,23 +5,27 @@
 
 $add_item_form = drupal_get_form('ips_orders_node_view_form', $node);
 echo drupal_render($add_item_form);
+?>
+  </div>
+</div>
 
+<div class="row">
+<?php
 if ($node->field_item_needs_repair['und'][0]['value'] == "no") {
+  echo '<div class="container">';
   $repair_item_form = drupal_get_form('ips_repairs_node_view_form', $node);
   echo drupal_render($repair_item_form);
+  echo '</div>';
 } else {
 ?>
-
-  <div class="repair row col-xs-12">
-    <div class="container">
+    <div class="repair container col-xs-12">
       This item is in need of repair. See details here: <?php echo ips_repairs_item_repair_link($node->nid); ?>
     </div>
-  </div>
 
 <?php } ?>
 
-  </div>
 </div>
+
 
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
