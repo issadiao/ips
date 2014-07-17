@@ -42,7 +42,7 @@ function ips_repairs_node_view_form_submit($form, &$form_state) {
   node_object_prepare($node);
   $node->language = LANGUAGE_NONE;
   $node->title = "REPAIR - $title";
-  $node->field_item_needs_repair['und'][0]['target_id'] = $item;
+  $node->field_repair_item['und'][0]['target_id'] = $item;
   $node->field_parent_company['und'][0]['target_id'] = $user->field_parent_company['und'][0]['target_id'];
   $node->created = time();
   $node->changed = time();
@@ -52,7 +52,7 @@ function ips_repairs_node_view_form_submit($form, &$form_state) {
 
   // update item node repair status to yes
   $updated_item = node_load($item);
-  $updated_item->field_needs_repair['und'][0]['value'] = "yes";
+  $updated_item->field_item_needs_repair['und'][0]['value'] = "yes";
   node_save($updated_item);
 
   $log_message = array(
