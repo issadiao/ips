@@ -81,8 +81,8 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
   }
 
   if ($form_id == "item_node_form" && $user->uid != 1) {
-    //$form['field_parent_company']['#access'] = FALSE;
-    $form['field_parent_company']['#default_value'] = 19;
+    $form['field_parent_company']['#access'] = FALSE;
+    $form['field_item_needs_repair']['#access'] = FALSE;
   }
 
 }
