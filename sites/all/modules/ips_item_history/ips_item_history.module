@@ -30,7 +30,7 @@ function ips_item_history_menu() {
 // display 100 most recent log entries
 function ips_item_history_display($display = 100, $item = NULL) {
   
-  $limit = 'LIMIT 100';
+  $limit = "LIMIT $display";
   if ($display == 0) {
     $limit = '';
   }
