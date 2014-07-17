@@ -190,7 +190,7 @@ tr.checked {
     float: left;
 }
 
-#ips-orders-node-view-form {
+#ips-orders-node-view-form, #ips-repairs-node-view-form {
     margin: 0 0 10px 0;
 }
 
