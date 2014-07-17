@@ -114,7 +114,7 @@ function ips_forms_add_to_inventory_submit($form, &$form_state) {
     $item['associated_item'] = $values[4];
   }
 
-  //ips_functions_add_to_inventory($item);
+  ips_functions_add_to_inventory($item);
 
 }
 
