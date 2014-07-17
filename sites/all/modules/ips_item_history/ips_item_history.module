@@ -53,9 +53,10 @@ function ips_item_history_display($display = 100, $item = NULL) {
   $output .= '<tr><th>Date</th><th>User</th><th>Item ID</th><th>Title</th><th>Status</th><th>Message</th></tr>';
   $output .= '</thead><tbody>';
   
-  $result = db_query("SELECT * 
-  FROM item_history 
-  WHERE id IS NOT NULL
+  $result = db_query("SELECT h.nid, h.uid, h.timestamp, h.data, h.status, n.title, u.name
+  FROM item_history h, node n, users u
+  WHERE n.nid = h.nid
+  AND u.uid = h.uid
   $company
   $nid
   ORDER BY id DESC
@@ -63,20 +64,12 @@ function ips_item_history_display($display = 100, $item = NULL) {
   ");
   foreach ($result as $record) {
 
-    $username = db_query("SELECT name FROM users WHERE uid = :uid", array(":uid" => $record->uid));
-    foreach ($username as $name) {
-      $user_name = $name->name;
-    }
-    $node_title = db_query("SELECT title FROM node WHERE nid = :nid", array(":nid" => $record->nid));
-    foreach ($node_title as $titled) {
-      $title = $titled->title;
-    }
     $log_link = "/admin/log/" . $record->nid;
     $item_link = drupal_lookup_path('alias', "node/" . $record->nid);
 
     $output .= '<tr>';
-    $output .= '<td>' . $record->timestamp . '</td><td>' . $user_name . '</td><td><a href="'. $log_link . '">' . $record->nid . '</a></td>';
-    $output .= '<td><a href="/'. $item_link . '">' . $title . '</a></td><td>' . $record->status . '</td><td>' . $record->data . '</td>';
+    $output .= '<td>' . $record->timestamp . '</td><td>' . $record->name . '</td><td><a href="'. $log_link . '">' . $record->nid . '</a></td>';
+    $output .= '<td><a href="/'. $item_link . '">' . $record->title . '</a></td><td>' . $record->status . '</td><td>' . $record->data . '</td>';
     $output .= '</tr>';
   }
   
