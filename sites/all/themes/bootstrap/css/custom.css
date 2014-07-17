@@ -189,3 +189,7 @@ tr.checked {
 .footer-nav {
     float: left;
 }
+
+#ips-orders-node-view-form {
+    margin: 0 0 10px 0;
+}
