@@ -195,6 +195,6 @@ tr.checked {
 }
 
 .field-name-field-item-image img {
-    margin: 0px 10px 10px;
+    margin: 0px 10px 10px 0px;
     border: 1px solid #e5e5e5;
 }
