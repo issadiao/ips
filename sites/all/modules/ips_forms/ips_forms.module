@@ -85,6 +85,12 @@ function ips_forms_form_alter(&$form, &$form_state, $form_id) {
     $form['field_item_needs_repair']['#access'] = FALSE;
   }
 
+  if ($form_id == "repair_node_form" && $user->uid != 1) {
+    $form['field_repair_item']['#access'] = FALSE;
+    $form['field_parent_company']['#access'] = FALSE;
+    $form['field_repair_complete']['#access'] = FALSE;
+  }
+
 }
 
 
