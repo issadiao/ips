@@ -126,7 +126,7 @@ function ips_repairs_item_repair_link($nid) {
   FROM field_data_field_repair_item r, field_data_field_repair_complete c, node n
   WHERE r.field_repair_item_target_id = :nid
   AND r.entity_id = c.entity_id
-  AND c.field_repair_complete = 'no'
+  AND c.field_repair_complete_value = 'no'
   AND n.nid = r.entity_id
   ORDER BY r.entity_id ASC
   ", array(":nid" => $nid));
